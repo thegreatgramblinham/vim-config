@@ -1,0 +1,5 @@
+#Overview
+This repository contains basic config files for setting up Vim according to my preferences.
+
+#Inclusions
+ - [Jellybeans Colorscheme](https://github.com/nanotech/jellybeans.vim)
