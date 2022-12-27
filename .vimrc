@@ -26,6 +26,15 @@ set cursorline
 " Highlight cursor line underneath the cursor vertically.
 set cursorcolumn
 
+" Set tab width to 4 columns.
+set tabstop=4
+
+" Do not let cursor scroll below or above N number of lines when scrolling.
+set scrolloff=15
+
+" Do not wrap lines. Allow long lines to extend as far as the line goes.
+set nowrap
+
 " Show partial command you type in the last line of the screen.
 set showcmd
 
@@ -53,3 +62,24 @@ set wildmode=list:longest
 " There are certain files that we would never want to edit with Vim.
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+" Status Line Config
+" ================
+" Clear status line when vimrc is reloaded.
+set statusline=
+
+" Status line left side. (filepath, filetype, ismodified)
+set statusline+=\ %F\ %Y\ %M
+
+" Use a divider to separate the left side from the right side.
+set statusline+=%=
+
+" Status line right side. (hex char, row#, col#, line% of file)
+set statusline+=\ 0x%B\ R:\%l\ C:\%c\ %p%%
+
+" Show the status on the second to last line.
+set laststatus=2
+
+" Set the colors for the status line
+set termguicolors
+hi StatusLine guibg=#2d2c2b guifg=#e5ddd3
