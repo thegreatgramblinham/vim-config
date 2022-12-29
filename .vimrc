@@ -124,7 +124,10 @@ hi StatusLine guibg=#2d2c2b guifg=#e5ddd3
 
 " Tab Line Config
 " ===============
+" Always show the tab line
+set showtabline=2
+
 " Set the colors of the tab line
-"hi TabLineFill guibg=#ff00ff guifg=#000000
-"hi TabLine guibg=#888888 guifg=#222222
-"hi TabLineSel guibg=#FFFFFF guifg=#000000
+hi TabLineFill guibg=#2d2c2b guifg=#000000
+hi TabLine guibg=#444444 guifg=#222222
+hi TabLineSel guibg=#d4bda8 guifg=#2c2926
