@@ -96,4 +96,5 @@ Delete marked text                  => d
  - Vim can edit remote files with the syntax:
  ```
  :e scp://user@host/<relative>/<path>/<from_home>.txt
+ :e scp://user@host//<absolute>/<path>/<from_root>.txt
  ```
