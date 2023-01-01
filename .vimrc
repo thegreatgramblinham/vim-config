@@ -21,8 +21,10 @@ set number
 " Flash the screen on error instead of playing noise
 set visualbell
 
-" Allow mouse to be used for scrolling, cursor placement, and resizing
-set mouse=a
+" Use mouse in "command-line"(c) mode. Allows for use of terminal context menu
+" and higlighting. Another popular option is 'a', which allows for selection
+" and cursor placement.
+set mouse=c
 
 " Set the window title to the name of the file being edited
 set title

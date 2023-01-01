@@ -33,9 +33,11 @@ Move back 1/2 screen                => Ctrl + u
 
 Forwards 1 word, to start           => w || Shift + Right
 Forwards 1 word, to start w/punc    => W || Ctrl + Right
+Forwards N words, to start          => #w
 Forwards 1 word, to end             => e
 Backwards 1 word, to start          => b || Shift + Left
 Backwards 1 word, to start w/punc   => B || Ctrl + Left
+Backwards N words, to start         => #b
 Backwards 1 word, to end            => ge
 
 Go to first line                    => gg
