@@ -133,3 +133,13 @@ set showtabline=2
 hi TabLineFill guibg=#2d2c2b guifg=#000000
 hi TabLine guibg=#444444 guifg=#222222
 hi TabLineSel guibg=#d4bda8 guifg=#2c2926
+
+" NERDTree Plugin Config
+" ======================
+map <F2> :NERDTreeToggle<CR>
+
+" Set the color of the directory highlighting
+hi Directory guifg=#B865AA
+hi NERDTreeClosable guifg=#d4bda8
+hi NERDTreeOpenable guifg=#d4bda8
+
