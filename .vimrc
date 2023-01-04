@@ -27,11 +27,6 @@ set mouse=a
 " Set the window title to the name of the file being edited
 set title
 
-" Highlight cursor line underneath the cursor horizontally.
-set cursorline
-
-" Highlight cursor line underneath the cursor vertically.
-set cursorcolumn
 
 " Show partial command you type in the last line of the screen.
 set showcmd
@@ -52,19 +47,20 @@ colorscheme jellybeans
 " 'cterm' color settings.
 set termguicolors
 
+
 " Text Rendering Options
 " ======================
-" Set shift width to 4 spaces.
-set shiftwidth=4
-
-" Set tab width to 4 columns.
-set tabstop=4
-
 " Do not let cursor scroll below or above N number of lines when scrolling.
 set scrolloff=20
 
+" Keep N lines to the left or right of the cursor
+set sidescrolloff=10
+
 " Do not wrap lines. Allow long lines to extend as far as the line goes.
 set nowrap
+
+" If wrapping gets turned on, avoid wrapping in the middle of a word.
+set linebreak
 
 " Attempt to always support Unicode
 set encoding=utf-8
@@ -72,14 +68,41 @@ set encoding=utf-8
 " Turn syntax highlighting on.
 syntax on
 
+" Highlight trailing whitespace
+match Error /\s\+$/
+
+
+" Text Editing Options
+" ====================
+" Highlight cursor line underneath the cursor horizontally.
+set cursorline
+
+" Highlight cursor line underneath the cursor vertically.
+set cursorcolumn
+
+" Always show cursor position
+set ruler
+
 " Enable folding based on indent levels
-" set foldmethod=indent
+set foldmethod=indent
+
+" Limit the folding recursion
+set foldnestmax=3
 
 " Preserve indent state
 set autoindent
 
-" Highlight trailing whitespace
-match Error /\s\+$/
+" Allow backspacing over indention, line breaks and instertion start
+set backspace=indent,eol,start
+
+" Set shift width to 4 spaces.
+set shiftwidth=4
+
+" Set tab width to 4 columns.
+set tabstop=4
+
+" Force the tab key to adhere the the specified tab width (tabstop)
+set smarttab
 
 
 " Search Options
@@ -87,8 +110,8 @@ match Error /\s\+$/
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
 
-" Ignore capital letters during search.
-set ignorecase
+" Only use case sensitivity if the query contains a capital letter.
+set smartcase
 
 " Show matching words during a search.
 set showmatch
@@ -147,6 +170,7 @@ set wildmode=list:longest
 " There are certain files that we would never want to edit with Vim.
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
 
 " NERDTree Plugin Config
 " ======================
