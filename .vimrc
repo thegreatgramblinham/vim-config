@@ -1,5 +1,5 @@
-" General Vim Behavior
-" ====================
+" General Settings
+" ================
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
@@ -16,24 +16,16 @@ filetype indent on
 set number
 
 " Enable spellchecking (disabled for now).
-" set spell
+"set spell
 
-" Flash the screen on error instead of playing noise
-set visualbell
-
-" Use mouse in "command-line"(c) mode. Allows for use of terminal context menu
+" Set mouse mode.
+" Set mouse in "command-line"(c) mode allows for use of terminal context menu
 " and higlighting. Another popular option is 'a', which allows for selection
 " and cursor placement.
-set mouse=c
+set mouse=a
 
 " Set the window title to the name of the file being edited
 set title
-
-" Set preferred color scheme
-colorscheme jellybeans
-
-" Use editor colors that suit a dark background
-set background=dark
 
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
@@ -47,22 +39,18 @@ set showcmd
 " Show the mode you are on the last line.
 set showmode
 
-" Preserve indent state
-set autoindent
 
+" Color Scheme Options
+" ====================
+" Use editor colors that suit a dark background
+set background=dark
 
-" Wildmenu Options
-" ================
-" Enable auto completion menu for commands after pressing TAB.
-set wildmenu
+" Set preferred color scheme
+colorscheme jellybeans
 
-" Make wildmenu behave like similar to Bash completion.
-set wildmode=list:longest
-
-" There are certain files that we would never want to edit with Vim.
-" Wildmenu will ignore files with these extensions.
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-
+" Use colors from the gui selections only. This option ignores
+" 'cterm' color settings.
+set termguicolors
 
 " Text Rendering Options
 " ======================
@@ -85,7 +73,13 @@ set encoding=utf-8
 syntax on
 
 " Enable folding based on indent levels
-set foldmethod=indent
+" set foldmethod=indent
+
+" Preserve indent state
+set autoindent
+
+" Highlight trailing whitespace
+match Error /\s\+$/
 
 
 " Search Options
@@ -121,8 +115,15 @@ set statusline+=\ 0x%B\ R:\%l\ C:\%c\ %p%%
 set laststatus=2
 
 " Set the colors for the status line
-set termguicolors
 hi StatusLine guibg=#2d2c2b guifg=#e5ddd3
+
+
+" Pmenu Config
+" ============
+" Set colorscheme
+hi Pmenu guibg=#444444 guifg=#222222
+hi PmenuSel guibg=#d4bda8 guifg=#2c2926
+
 
 " Tab Line Config
 " ===============
@@ -134,12 +135,25 @@ hi TabLineFill guibg=#2d2c2b guifg=#000000
 hi TabLine guibg=#444444 guifg=#222222
 hi TabLineSel guibg=#d4bda8 guifg=#2c2926
 
+
+" Wildmenu (command) Options
+" ==========================
+" Enable auto completion menu for commands after pressing TAB.
+set wildmenu
+
+" Make wildmenu behave like similar to Bash completion.
+set wildmode=list:longest
+
+" There are certain files that we would never want to edit with Vim.
+" Wildmenu will ignore files with these extensions.
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
 " NERDTree Plugin Config
 " ======================
 map <F2> :NERDTreeToggle<CR>
 
 " Set the color of the directory highlighting
-hi Directory guifg=#B865AA
+hi Directory guifg=#d4bda8
 hi NERDTreeClosable guifg=#d4bda8
 hi NERDTreeOpenable guifg=#d4bda8
 
