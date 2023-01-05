@@ -1,4 +1,14 @@
-" General Settings
+" This file contains the behavior settings for vim that get initialized on
+" startup.
+"
+"Keybinding notation:
+"<S-...>  shift-key                      shift <S-
+"<C-...>  control-key                    control ctrl <C-
+"<M-...>  alt-key or meta-key            meta alt <M-
+"<A-...>  same as <M-...>                <A-
+"<D-...>  command-key (Macintosh only)   <D-
+
+" General settings
 " ================
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
@@ -83,12 +93,6 @@ set cursorcolumn
 " Always show cursor position
 set ruler
 
-" Enable folding based on indent levels
-set foldmethod=indent
-
-" Limit the folding recursion
-set foldnestmax=3
-
 " Preserve indent state
 set autoindent
 
@@ -104,14 +108,24 @@ set tabstop=4
 " Force the tab key to adhere the the specified tab width (tabstop)
 set smarttab
 
+" Enable folding based on indent levels
+set foldmethod=indent
+
+" Limit the folding recursion
+set foldnestmax=3
+
+" **Folding Keybindings**
+" Reset folding on document
+map <C-S-q> :set foldmethod=indent<CR>
+
 
 " Search Options
 " ==============
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
 
-" Only use case sensitivity if the query contains a capital letter.
-set smartcase
+" Ignore case while searching
+set ignorecase
 
 " Show matching words during a search.
 set showmatch
