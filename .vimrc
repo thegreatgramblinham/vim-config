@@ -114,10 +114,6 @@ set foldmethod=indent
 " Limit the folding recursion
 set foldnestmax=3
 
-" **Folding Keybindings**
-" Reset folding on document
-map <C-S-q> :set foldmethod=indent<CR>
-
 
 " Search Options
 " ==============
@@ -194,4 +190,3 @@ map <F2> :NERDTreeToggle<CR>
 hi Directory guifg=#d4bda8
 hi NERDTreeClosable guifg=#d4bda8
 hi NERDTreeOpenable guifg=#d4bda8
-
