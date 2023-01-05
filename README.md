@@ -5,6 +5,8 @@ This repository is based relative to the user's home directory.
 # Inclusions
  - [Jellybeans Colorscheme](https://github.com/nanotech/jellybeans.vim)
  - [OpenSCAD Syntax Highlighting](https://github.com/sirtaj/vim-openscad)
+ - [NERDTree](https://github.com/preservim/nerdtree)
+ - [AutoComplPop](https://www.vim.org/scripts/script.php?script_id=1879)
 
 # Shortcut Cheatsheet
 ```
@@ -26,6 +28,7 @@ To Insert mode start of line        => I
 To Insert mode after cursor         => a
 To Insert mode at EoL               => A
 To Insert mode below, new line      => o
+To Insert mode above, new line      => O
 
 # Movement
 Move foward 1/2 screen              => Ctrl + d
@@ -41,6 +44,7 @@ Backwards N words, to start         => #b
 Backwards 1 word, to end            => ge
 
 Go to first line                    => gg
+Go to last line                     => G
 Go to line #                        => #gg
 
 Jump next paragraph (code block)    => }
@@ -63,6 +67,7 @@ Delete (cut) word                   => dw
 Delete (cut) character              => x
 Yank (copy) line                    => yy
 Yank (copy) N lines                 => #yy
+Yank (copy) to EoL                  => Y
 Yank (copy) word                    => yw
 Put (paste) after cursor            => p
 
@@ -87,7 +92,8 @@ Move to tab N                       => #gt
 
 # Code Folding
 Toggle (zip) single fold            => za
-Toggle (zip) all fold               => zA
+Toggle (zip) all fold under cursor  => zA
+Reset file folding                  => zX
 
 # Visual Mode
 Yank (copy) marked text             => y
