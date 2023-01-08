@@ -28,7 +28,7 @@ set number
 " Enable spellchecking (disabled for now).
 "set spell
 
-" Set mouse mode.
+" Set mouse mode
 " Set mouse in "command-line"(c) mode allows for use of terminal context menu
 " and higlighting. Another popular option is 'a', which allows for selection
 " and cursor placement.
@@ -37,13 +37,29 @@ set mouse=a
 " Set the window title to the name of the file being edited
 set title
 
-
 " Show partial command you type in the last line of the screen.
 set showcmd
 
 " Show the mode you are on the last line.
 set showmode
 
+" Stop certain movements from always going to the first character of a line.
+" While this behaviour deviates from that of Vi, it does what most users
+" coming from other editors would expect.
+set nostartofline
+
+" Instead of failing a command because of unsaved changes, instead raise a
+" dialogue asking if you wish to save changed files.
+set confirm
+
+" Quickly time out on keycodes, but never time out on mappings
+set notimeout ttimeout ttimeoutlen=200
+
+" Custom Keybindings
+" ==================
+" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
+" which is the default
+map Y y$
 
 " Color Scheme Options
 " ====================
@@ -64,7 +80,7 @@ set termguicolors
 set scrolloff=20
 
 " Keep N lines to the left or right of the cursor
-set sidescrolloff=10
+set sidescrolloff=1
 
 " Do not wrap lines. Allow long lines to extend as far as the line goes.
 set nowrap
