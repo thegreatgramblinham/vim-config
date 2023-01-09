@@ -132,6 +132,9 @@ set tabstop=4
 " Force the tab key to adhere the the specified tab width (tabstop)
 set smarttab
 
+" Force the tab to print spaces according to what is set above.
+set expandtab
+
 " Enable folding based on indent levels
 set foldmethod=indent
 
@@ -211,3 +214,4 @@ map <F2> :NERDTreeToggle<CR>
 hi Directory guifg=#d4bda8
 hi NERDTreeClosable guifg=#d4bda8
 hi NERDTreeOpenable guifg=#d4bda8
+
