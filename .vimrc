@@ -55,11 +55,13 @@ set confirm
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
 
+
 " Custom Keybindings
 " ==================
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
 map Y y$
+
 
 " Color Scheme Options
 " ====================
@@ -111,6 +113,7 @@ set showmatch
 
 " Set how long to show the matching paren (in tenths of seconds)
 set matchtime=3
+
 
 " Text Editing Options
 " ====================
