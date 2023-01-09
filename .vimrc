@@ -97,9 +97,6 @@ syntax on
 " Highlight trailing whitespace
 match Error /\s\+$/
 
-
-" Text Editing Options
-" ====================
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
 
@@ -109,6 +106,14 @@ set cursorcolumn
 " Always show cursor position
 set ruler
 
+" When a bracket is inserted, briefly jump to the matching one.
+set showmatch
+
+" Set how long to show the matching paren (in tenths of seconds)
+set matchtime=3
+
+" Text Editing Options
+" ====================
 " Preserve indent state
 set autoindent
 
@@ -138,9 +143,6 @@ set incsearch
 
 " Ignore case while searching
 set ignorecase
-
-" Show matching words during a search.
-set showmatch
 
 " Use highlighting when doing a search.
 set hlsearch
