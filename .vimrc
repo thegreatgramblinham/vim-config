@@ -13,6 +13,9 @@
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
+" Disable swap files
+set noswapfile
+
 " Enable type file detection. Vim will be able to try to detect the type of file in use.
 filetype on
 
@@ -22,8 +25,19 @@ filetype plugin on
 " Load an indent file for the detected file type.
 filetype indent on
 
-" Always show line numbers
-set number
+" Line numbering scheme options:
+"   set number == Always show absolute line numbers.
+"   set relativenumber == Always show "lines away" line numbers
+"   set number relativenumber == Hybrid. Shows absolute at current line and
+"       relative numbers on all others.
+" (In use) Dynamic scheme. Use absolute numbers in insert mode, but hybrid in command
+" mode.
+:set number
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
 
 " Enable spellchecking (disabled for now).
 "set spell
