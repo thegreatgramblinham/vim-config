@@ -76,6 +76,10 @@ set notimeout ttimeout ttimeoutlen=200
 " which is the default
 map Y y$
 
+" 'Smooth Scroll' Settings
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+
 
 " Color Scheme Options
 " ====================
