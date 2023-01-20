@@ -69,6 +69,9 @@ set confirm
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
 
+" No 'visualbell' screen flashes or OS error noises
+set belloff=all
+
 
 " Custom Keybindings
 " ==================
