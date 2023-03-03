@@ -7,6 +7,7 @@ This repository is based relative to the user's home directory.
  - [OpenSCAD Syntax Highlighting](https://github.com/sirtaj/vim-openscad)
  - [NERDTree](https://github.com/preservim/nerdtree)
  - [AutoComplPop](https://www.vim.org/scripts/script.php?script_id=1879)
+ - [QFixToggle](https://www.vim.org/scripts/script.php?script_id=1375)
 
 # Shortcut Cheatsheet
 ```

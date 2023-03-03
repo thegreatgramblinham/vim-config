@@ -72,6 +72,9 @@ set notimeout ttimeout ttimeoutlen=200
 " No 'visualbell' screen flashes or OS error noises
 set belloff=all
 
+" Save the last N commands used in vim for historical lookback
+set history=200
+
 
 " Custom Keybindings
 " ==================
@@ -83,6 +86,45 @@ map Y y$
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
+" Leader Keybindings
+" ==================
+" Map leader key
+let mapleader = "\<BS>"
+
+" Hide search highlighting
+map <leader>h :noh<CR>
+
+" Yank and Put to system register
+map <leader>y "+y
+map <leader>p "+p
+
+" Launch file tree
+map <leader>e :NERDTreeToggle<CR>
+
+" Launch find and replace
+map <leader>r :%s//gc<Left><Left><Left>
+" Launch find and replace from system register content
+map <leader><C-r> :%s/<C-r>"//gc<Left><Left><Left>
+
+" Launch find all in working directory
+map <leader>f :noautocmd vimgrep  **/*<Left><Left><Left><Left><Left>
+" Launch find all in working directory from system register content
+map <leader><C-f> :noautocmd vimgrep <C-r>" **/*
+
+" Call qfixtoggle plugin to toggle quick fix window
+map <leader>x :QFix<CR>
+let g:QFixToggle_Height=20
+
+" Save all open buffers
+map <leader>w :wa<CR>
+" Close the current buffer
+map <leader>q :bd<CR>
+
+" Recursively add all the working directory to our searchable path.
+set path+=**
+" Open search filter for filename (trailing space is intended)
+map <leader>t :find 
+"TODO reserve 'g' for git function
 
 " Color Scheme Options
 " ====================
@@ -168,8 +210,10 @@ set foldnestmax=3
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
 
-" Ignore case while searching
+" Ignore case while searching unless a different case is typed
+" in the search parameter.
 set ignorecase
+set smartcase
 
 " Use highlighting when doing a search.
 set hlsearch
@@ -219,20 +263,25 @@ hi TabLineSel guibg=#d4bda8 guifg=#2c2926
 " Enable auto completion menu for commands after pressing TAB.
 set wildmenu
 
+" Show wildmenu options in popup
+set wildoptions=pum
+
 " Make wildmenu behave like similar to Bash completion.
-set wildmode=list:longest
+set wildmode=longest:full
 
 " There are certain files that we would never want to edit with Vim.
 " Wildmenu will ignore files with these extensions.
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.dll,*.pdb,*.mp4
 
 
 " NERDTree Plugin Config
 " ======================
 map <F2> :NERDTreeToggle<CR>
 
+" Show hidden files by default
+let g:NERDTreeShowHidden=1
+
 " Set the color of the directory highlighting
 hi Directory guifg=#d4bda8
 hi NERDTreeClosable guifg=#d4bda8
 hi NERDTreeOpenable guifg=#d4bda8
-
