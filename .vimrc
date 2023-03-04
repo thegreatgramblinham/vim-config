@@ -120,7 +120,7 @@ map <leader>w :wa<CR>
 " Close the current buffer
 map <leader>q :bd<CR>
 " Save all, close all and quit
-map <leader><C-q> :wqa<CR>
+map <leader>Q :wqa<CR>
 
 " Recursively add all the working directory to our searchable path.
 set path+=**
