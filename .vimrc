@@ -119,11 +119,16 @@ let g:QFixToggle_Height=20
 map <leader>w :wa<CR>
 " Close the current buffer
 map <leader>q :bd<CR>
+" Save all, close all and quit
+map <leader><C-q> :wqa<CR>
 
 " Recursively add all the working directory to our searchable path.
 set path+=**
 " Open search filter for filename (trailing space is intended)
 map <leader>t :find 
+
+" Open a shell window
+map <leader>s :terminal<CR>
 "TODO reserve 'g' for git function
 
 " Color Scheme Options
@@ -238,6 +243,7 @@ set laststatus=2
 
 " Set the colors for the status line
 hi StatusLine guibg=#2d2c2b guifg=#e5ddd3
+hi StatusLineNC guibg=#484644 guifg=#252025
 
 
 " Pmenu Config
@@ -256,6 +262,24 @@ set showtabline=2
 hi TabLineFill guibg=#2d2c2b guifg=#000000
 hi TabLine guibg=#444444 guifg=#222222
 hi TabLineSel guibg=#d4bda8 guifg=#2c2926
+
+
+" Terminal Config
+" ===============
+" Set the default Vim terminal to bash
+set shell=bash
+
+" Set the terminal colorscheme
+let g:terminal_ansi_colors = [
+  \'#062B35', '#AD706F', '#879886', '#B58900',
+  \'#D1A4D7', '#D33682', '#CDC4DA', '#EEE8D5',
+  \'#8C7BC6', '#6A6360', '#E7B0DE', '#657B83',
+  \'#8C8073', '#6C71C4', '#A682B8', '#FDF6E3' ]
+
+hi Terminal guibg=#1E1206
+hi Terminal guifg=#DCD3CB
+hi StatusLineTerm guibg=#2d2c2b guifg=#e5ddd3
+hi StatusLineTermNC guibg=#484644 guifg=#252025
 
 
 " Wildmenu (command) Options
