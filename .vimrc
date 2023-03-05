@@ -104,12 +104,12 @@ map <leader>e :NERDTreeToggle<CR>
 " Launch find and replace
 map <leader>r :%s//gc<Left><Left><Left>
 " Launch find and replace from system register content
-map <leader><C-r> :%s/<C-r>"//gc<Left><Left><Left>
+map <leader>R :%s/<C-r>"//gc<Left><Left><Left>
 
-" Launch find all in working directory
+" Launch find all in working directory (noautocmd for speed)
 map <leader>f :noautocmd vimgrep  **/*<Left><Left><Left><Left><Left>
 " Launch find all in working directory from system register content
-map <leader><C-f> :noautocmd vimgrep <C-r>" **/*
+map <leader>F :noautocmd vimgrep <C-r>" **/*
 
 " Call qfixtoggle plugin to toggle quick fix window
 map <leader>x :QFix<CR>
@@ -126,6 +126,8 @@ map <leader>Q :wqa<CR>
 set path+=**
 " Open search filter for filename (trailing space is intended)
 map <leader>t :find 
+" Open search filter for filename with the system register contents
+map <leader>T :find <C-r>"
 
 " Open a shell window
 map <leader>s :terminal<CR>
