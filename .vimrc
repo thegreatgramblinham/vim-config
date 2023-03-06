@@ -1,4 +1,4 @@
-" This file contains the behavior settings for vim that get initialized on
+" This contains the behavior settings for vim that get initialized on
 " startup.
 "
 "Keybinding notation:
@@ -21,6 +21,9 @@ filetype on
 
 " Enable plugins and load plugin for the detected file type.
 filetype plugin on
+
+" Set the desired font for GUI applications like gVim
+set guifont=JetBrains_Mono_NL:h10
 
 " Load an indent file for the detected file type.
 filetype indent on
@@ -111,9 +114,9 @@ map <leader>f :noautocmd vimgrep  **/*<Left><Left><Left><Left><Left>
 " Launch find all in working directory from system register content
 map <leader>F :noautocmd vimgrep <C-r>" **/*
 
-" Call qfixtoggle plugin to toggle quick fix window
-map <leader>x :QFix<CR>
-let g:QFixToggle_Height=20
+" Open and close the quickfix window
+map <leader>x :copen 20<CR>
+map <leader>X :cclose<CR>
 
 " Save all open buffers
 map <leader>w :wa<CR>
@@ -269,7 +272,7 @@ hi TabLineSel guibg=#d4bda8 guifg=#2c2926
 " Terminal Config
 " ===============
 " Set the default Vim terminal to bash
-set shell=bash
+set shell=bin/bash.exe
 
 " Set the terminal colorscheme
 let g:terminal_ansi_colors = [
@@ -302,8 +305,6 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.d
 
 " NERDTree Plugin Config
 " ======================
-map <F2> :NERDTreeToggle<CR>
-
 " Show hidden files by default
 let g:NERDTreeShowHidden=1
 
