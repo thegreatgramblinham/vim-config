@@ -99,7 +99,9 @@ map <leader>h :noh<CR>
 
 " Yank and Put to system register
 map <leader>y "+y
+map <leader>Y "+Y
 map <leader>p "+p
+map <leader>P "+P
 
 " Launch file tree
 map <leader>e :NERDTreeToggle<CR>
@@ -134,6 +136,10 @@ map <leader>T :find <C-r>"
 
 " Open a shell window
 map <leader>s :terminal<CR>
+
+" Open a new tab
+map <leader>n :tabnew<CR>
+
 "TODO reserve 'g' for git function
 
 " Color Scheme Options
@@ -272,7 +278,7 @@ hi TabLineSel guibg=#d4bda8 guifg=#2c2926
 " Terminal Config
 " ===============
 " Set the default Vim terminal to bash
-set shell=bin/bash.exe
+set shell=bash
 
 " Set the terminal colorscheme
 let g:terminal_ansi_colors = [
