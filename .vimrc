@@ -47,9 +47,9 @@ filetype indent on
 
 " Set mouse mode
 " Set mouse in "command-line"(c) mode allows for use of terminal context menu
-" and higlighting. Another popular option is 'a', which allows for selection
+" and selection. Another popular option is 'a', which allows for selection
 " and cursor placement.
-set mouse=a
+set mouse=c
 
 " Set the window title to the name of the file being edited
 set title
