@@ -130,15 +130,22 @@ map <leader>Q :wqa<CR>
 " Recursively add all the working directory to our searchable path.
 set path+=**
 " Open search filter for filename (trailing space is intended)
-map <leader>t :find 
+map <leader>t :find *
 " Open search filter for filename with the system register contents
-map <leader>T :find <C-r>+
+map <leader>T :find *<C-r>+
 
 " Open a shell window
 map <leader>s :terminal<CR>
 
 " Open a new tab
 map <leader>n :tabnew<CR>
+
+" Resize the current vertically split window
+map <leader>> :30winc ><CR>
+map <leader>< :30winc <<CR>
+" Resize the current horizontally split window
+map <leader>- :10winc -<CR>
+map <leader>+ :10winc +<CR>
 
 "TODO reserve 'g' for git function
 
