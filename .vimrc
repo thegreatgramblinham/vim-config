@@ -149,6 +149,16 @@ map <leader>+ :10winc +<CR>
 
 "TODO reserve 'g' for git function
 
+" OpenSCAD Leader Macro Functions
+map <leader>mot atranslate([0, 0, 0])<Esc>
+map <leader>mor arotate([0, 0, 0])<Esc>
+map <leader>mos ascale([0, 0, 0])<Esc>
+map <leader>mob acube([length, width, depth]);<Esc>
+map <leader>moc acylinder(r=radius, h=height, $fn=100);<Esc>
+map <leader>mou aunion()<Esc>
+map <leader>mod adifference()<Esc>
+map <leader>mom amodule ()<CR>{<CR>}<Esc><Up><Up>f(i
+
 " Color Scheme Options
 " ====================
 " Use editor colors that suit a dark background
