@@ -129,7 +129,7 @@ map <leader>Q :wqa<CR>
 
 " Recursively add all the working directory to our searchable path.
 set path+=**
-" Open search filter for filename (trailing space is intended)
+" Open search filter for filename
 map <leader>t :find *
 " Open search filter for filename with the system register contents
 map <leader>T :find *<C-r>+
