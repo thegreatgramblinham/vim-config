@@ -147,9 +147,25 @@ map <leader>< :30winc <<CR>
 map <leader>- :10winc -<CR>
 map <leader>+ :10winc +<CR>
 
-"TODO reserve 'g' for git function
+" Reload the vimrc file
+map <leader>zv :source $MYVIMRC<CR>
+
+"TODO reserve 'g' for git function prefix
+
+" Leader Text Macros
+" ==================
+let macroCommandPrefix = 'm'
+
+" General Text Macro Functions
+map <leader>m{ a<CR>{<CR>}<Esc>O<Tab>
+map <leader>m<C-{> a{<CR>}<Esc>O<Tab>
+" Note: For whatever reason autocompPop is just launching/erroring with this macro?!
+" Not sure why currently.
+map <leader>m( :AcpDisable<CR>a()<CR>{<CR>}<Esc>O<Tab><Esc>:AcpEnable<CR>a
 
 " OpenSCAD Leader Macro Functions
+let openScadCommandPrefix = 'o'
+
 map <leader>mot atranslate([0, 0, 0])<Esc>
 map <leader>mor arotate([0, 0, 0])<Esc>
 map <leader>mos ascale([0, 0, 0])<Esc>
@@ -157,7 +173,34 @@ map <leader>mob acube([length, width, depth]);<Esc>
 map <leader>moc acylinder(r=radius, h=height, $fn=100);<Esc>
 map <leader>mou aunion()<Esc>
 map <leader>mod adifference()<Esc>
-map <leader>mom amodule ()<CR>{<CR>}<Esc><Up><Up>f(i
+map <leader>mom amodule ()<CR>{<CR>}<Esc>2<Up>f(i
+
+" C# Leader Macro Functions
+let csCommandPrefix = '#'
+
+map <leader>m#Pm apublic ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#Pvm apublic void ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#Pbm apublic bool ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#Pim apublic int ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#Pfm apublic float ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#Pdm apublic double ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#Psm apublic string ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#pm aprivate ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#pvm aprivate void ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#pbm aprivate bool ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#pim aprivate int ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#pfm aprivate float ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#pdm aprivate double ()<CR>{<CR>}<Esc>2<Up>f(i
+map <leader>m#psm aprivate string ()<CR>{<CR>}<Esc>2<Up>f(i
+
+map <leader>m#cc a//Private Variables<CR>//Properties<CR>//Constructor<CR>//Public Methods<CR>//Private Methods<Esc>4<Up>^
+map <leader>m#Cc a//Public Constants<CR>//Private Constants<CR>//Private Variables<CR>//Properties<CR>//Constructor<CR>//Public Methods<CR>//Private Methods<Esc>4<Up>^
+" Trailing whitespace is intended in the summary comment structure.
+map <leader>m#sc a///<summary><CR>///<CR>///</summary><Esc><Up>A 
+
+" C++ Leader Macro Functions
+let cppCommandPrefix = '+'
+
 
 " Color Scheme Options
 " ====================
