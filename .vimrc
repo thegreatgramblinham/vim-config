@@ -16,6 +16,12 @@ set nocompatible
 " Disable swap files
 set noswapfile
 
+" Disable additions of end of line characters by default
+set nofixendofline
+
+" Prevent vim from auto inserting linebreaks/wraps where it thinks appropriate.
+set textwidth=0
+
 " Enable type file detection. Vim will be able to try to detect the type of file in use.
 filetype on
 
@@ -157,11 +163,11 @@ map <leader>zv :source $MYVIMRC<CR>
 let macroCommandPrefix = 'm'
 
 " General Text Macro Functions
-map <leader>m{ a<CR>{<CR>}<Esc>O<Tab>
-map <leader>m<C-{> a{<CR>}<Esc>O<Tab>
-" Note: For whatever reason autocompPop is just launching/erroring with this macro?!
+" Note: For whatever reason autocompPop is just launching/erroring with these macros?!
 " Not sure why currently.
-map <leader>m( :AcpDisable<CR>a()<CR>{<CR>}<Esc>O<Tab><Esc>:AcpEnable<CR>a
+map <leader>m{ :AcpDisable<CR>$a<CR>{<CR>}<Esc>O <Esc>:AcpEnable<CR>a<BS>
+map <leader>m<C-{> :AcpDisable<CR>$a{<CR>}<Esc>O <Esc>:AcpEnable<CR>a<BS>
+map <leader>m( :AcpDisable<CR>$a()<CR>{<CR>}<Esc>O <Esc>:AcpEnable<CR>a<BS>
 
 " OpenSCAD Leader Macro Functions
 let openScadCommandPrefix = 'o'
@@ -176,27 +182,21 @@ map <leader>mod adifference()<Esc>
 map <leader>mom amodule ()<CR>{<CR>}<Esc>2<Up>f(i
 
 " C# Leader Macro Functions
-let csCommandPrefix = '#'
+let csCommandPrefix = 's'
 
-map <leader>m#Pm apublic ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#Pvm apublic void ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#Pbm apublic bool ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#Pim apublic int ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#Pfm apublic float ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#Pdm apublic double ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#Psm apublic string ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#pm aprivate ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#pvm aprivate void ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#pbm aprivate bool ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#pim aprivate int ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#pfm aprivate float ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#pdm aprivate double ()<CR>{<CR>}<Esc>2<Up>f(i
-map <leader>m#psm aprivate string ()<CR>{<CR>}<Esc>2<Up>f(i
+" C# Statements
+" TODO: these need to be transformed into functions to function correctly.
+map <leader>msfe aforeach (var  in collection)<CR>{<CR>}<Esc>02<Up>tii
+map <leader>msf afor (int i = 0; i < ; i++)<CR>{<CR>}<Esc>02<Up>t;;i
+map <leader>mss aswitch ()<CR>{<CR><Tab>case caseOne:<CR><Tab>break;<CR><BS>
+ \case caseTwo:<CR><Tab>break;<CR><BS>default:<CR><Tab>break;<CR><BS><BS>}
+ \<Esc>08<Up>f)i
 
-map <leader>m#cc a//Private Variables<CR>//Properties<CR>//Constructor<CR>//Public Methods<CR>//Private Methods<Esc>4<Up>^
-map <leader>m#Cc a//Public Constants<CR>//Private Constants<CR>//Private Variables<CR>//Properties<CR>//Constructor<CR>//Public Methods<CR>//Private Methods<Esc>4<Up>^
+" C# Comments
+map <leader>mscc a//Private Variables<CR>//Properties<CR>//Constructor<CR>//Public Methods<CR>//Private Methods<Esc>4<Up>^
+map <leader>msCc a//Public Constants<CR>//Private Constants<CR>//Private Variables<CR>//Properties<CR>//Constructor<CR>//Public Methods<CR>//Private Methods<Esc>4<Up>^
 " Trailing whitespace is intended in the summary comment structure.
-map <leader>m#sc a///<summary><CR>///<CR>///</summary><Esc><Up>A 
+map <leader>mssc a///<summary><CR>///<CR>///</summary><Esc><Up>A 
 
 " C++ Leader Macro Functions
 let cppCommandPrefix = '+'
@@ -313,7 +313,7 @@ set statusline+=\ 0x%B\ R:\%l\ C:\%c\ %p%%
 set laststatus=2
 
 " Set the colors for the status line
-hi StatusLine guibg=#2d2c2b guifg=#e5ddd3
+hi StatusLine guibg=#775F73 guifg=#e5ddd3
 hi StatusLineNC guibg=#484644 guifg=#252025
 
 
