@@ -167,36 +167,43 @@ let macroCommandPrefix = 'm'
 " Not sure why currently.
 map <leader>m{ :AcpDisable<CR>$a<CR>{<CR>}<Esc>O <Esc>:AcpEnable<CR>a<BS>
 map <leader>m<C-{> :AcpDisable<CR>$a{<CR>}<Esc>O <Esc>:AcpEnable<CR>a<BS>
-map <leader>m( :AcpDisable<CR>$a()<CR>{<CR>}<Esc>O <Esc>:AcpEnable<CR>a<BS>
+"map <leader>m( :AcpDisable<CR>$a()<CR>{<CR>}<Esc>O <Esc>:AcpEnable<CR>a<BS>
+map <leader>m( :call GpGenerateMethodEnding()<CR>
 
 " OpenSCAD Leader Macro Functions
 let openScadCommandPrefix = 'o'
 
-map <leader>mot atranslate([0, 0, 0])<Esc>
-map <leader>mor arotate([0, 0, 0])<Esc>
-map <leader>mos ascale([0, 0, 0])<Esc>
-map <leader>mob acube([length, width, depth]);<Esc>
-map <leader>moc acylinder(r=radius, h=height, $fn=100);<Esc>
-map <leader>mou aunion()<Esc>
-map <leader>mod adifference()<Esc>
-map <leader>mom amodule ()<CR>{<CR>}<Esc>2<Up>f(i
+" OpenSCAD Statements
+map <leader>mom :call OsGenerateModule()<CR>
+map <leader>mof :call OsGenerateFor()<CR>
+
+" OpenSCAD Bodies
+map <leader>moc :call OsGenerateCube()<CR>
+map <leader>moy :call OsGenerateCylinder()<CR>
+map <leader>mop :call OsGenerateSphere()<CR>
+
+" OpenSCAD Transformations
+map <leader>mot :call OsGenerateTranslate()<CR>
+map <leader>mor :call OsGenerateRotate()<CR>
+map <leader>mos :call OsGenerateScale()<CR>
+
+" OpenSCAD Spatial Boolean Operators
+map <leader>mou :call OsGenerateUnion()<CR>
+map <leader>mod :call OsGenerateDifference()<CR>
+map <leader>moi :call OsGenerateIntersection()<CR>
 
 " C# Leader Macro Functions
 let csCommandPrefix = 's'
 
 " C# Statements
-" TODO: these need to be transformed into functions to function correctly.
-map <leader>msfe aforeach (var  in collection)<CR>{<CR>}<Esc>02<Up>tii
-map <leader>msf afor (int i = 0; i < ; i++)<CR>{<CR>}<Esc>02<Up>t;;i
-map <leader>mss aswitch ()<CR>{<CR><Tab>case caseOne:<CR><Tab>break;<CR><BS>
- \case caseTwo:<CR><Tab>break;<CR><BS>default:<CR><Tab>break;<CR><BS><BS>}
- \<Esc>08<Up>f)i
+map <leader>msfe :call CsGenerateForeach()<CR>
+map <leader>msf :call CsGenerateFor()<CR>
+map <leader>mss :call CsGenerateSwitch()<CR>
 
 " C# Comments
-map <leader>mscc a//Private Variables<CR>//Properties<CR>//Constructor<CR>//Public Methods<CR>//Private Methods<Esc>4<Up>^
-map <leader>msCc a//Public Constants<CR>//Private Constants<CR>//Private Variables<CR>//Properties<CR>//Constructor<CR>//Public Methods<CR>//Private Methods<Esc>4<Up>^
-" Trailing whitespace is intended in the summary comment structure.
-map <leader>mssc a///<summary><CR>///<CR>///</summary><Esc><Up>A 
+map <leader>mscc :call CsGenerateClassComments()<CR>
+map <leader>msCc :call CsGenerateFullClassComments()<CR>
+map <leader>mssc :call CsGenerateSummaryComment()<CR>
 
 " C++ Leader Macro Functions
 let cppCommandPrefix = '+'
@@ -313,7 +320,7 @@ set statusline+=\ 0x%B\ R:\%l\ C:\%c\ %p%%
 set laststatus=2
 
 " Set the colors for the status line
-hi StatusLine guibg=#775F73 guifg=#e5ddd3
+hi StatusLine guibg=#775f73 guifg=#e5ddd3
 hi StatusLineNC guibg=#484644 guifg=#252025
 
 
@@ -349,7 +356,7 @@ let g:terminal_ansi_colors = [
 
 hi Terminal guibg=#1E1206
 hi Terminal guifg=#DCD3CB
-hi StatusLineTerm guibg=#2d2c2b guifg=#e5ddd3
+hi StatusLineTerm guibg=#775f73 guifg=#e5ddd3
 hi StatusLineTermNC guibg=#484644 guifg=#252025
 
 
