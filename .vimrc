@@ -260,6 +260,11 @@ set showmatch
 " Set how long to show the matching paren (in tenths of seconds)
 set matchtime=3
 
+" Set special rendering for tab indent levels and trailing spaces
+set list
+set listchars=multispace:❘\ \ \ ,trail:·
+hi SpecialKey guibg=NONE
+
 
 " Text Editing Options
 " ====================
