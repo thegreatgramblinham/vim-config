@@ -5,57 +5,53 @@
 " General Statements
 " ==================
 function! OsGenerateModule()
-    call append(".", [
-                \"module functionName()",
-                \"{",
-                \"}"])
+    normal! omodule functionName
+    call GpGenerateMethodEnding()
 endfunction
 
 function! OsGenerateFor()
-    call append(".", [
-                \"for (i=[0:upperBound])",
-                \"{",
-                \"}"])
+    normal! ofor (i=[0:upperBound])
+    call GpGenerateReturnBraces()
 endfunction
 
 " Bodies
 " ======
 function! OsGenerateCube()
-    call append(".", "cube([length, width, depth]);")
+    normal! ocube([length, width, depth]);
 endfunction
 
 function! OsGenerateCylinder()
-    call append(".", "cylinder(r=radius, h=height, $fn=100);")
+    normal! ocylinder(r=radius, h=height, $fn=100);
 endfunction
 
 function! OsGenerateSphere()
-    call append(".", "sphere(r=radius, $fn=100);")
+    normal! osphere(r=radius, $fn=100);
 endfunction
 
 " Transformations
 " ===============
 function! OsGenerateTranslate()
-    call append(".", "translate([0, 0, 0])")
+    normal! otranslate([0, 0, 0])
 endfunction
 
 function! OsGenerateRotate()
-    call append(".", "rotate([0, 0, 0])")
+    normal! orotate([0, 0, 0])
 endfunction
 
 function! OsGenerateScale()
-    call append(".", "scale([1, 1, 1])")
+    normal! oscale([1, 1, 1])
 endfunction
 
 " Spatial Booleans
 " ================
 function! OsGenerateUnion()
-    call append(".", "union()")
+    normal! ounion()
 endfunction
 
 function! OsGenerateDifference()
-    call append(".", "difference()")
+    normal! odifference()
 endfunction
 
 function! OsGenerateIntersection()
-    call append(".", "intersection()")
+    normal! ointersection()
 endfunction

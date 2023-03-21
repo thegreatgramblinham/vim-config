@@ -5,57 +5,52 @@
 " Logical Statements
 " ==================
 function! CsGenerateForeach()
-    call append(".", [
-                \"foreach (var  in collection)",
-                \"{",
-                \"}"])
+    normal! oforeach (var object in collection)
+    call GpGenerateReturnBraces()
 endfunction
 
 function! CsGenerateFor()
-    call append(".", [
-                \"for (int i = 0; i < upperBound; i++)",
-                \"{",
-                \"}"])
+    normal! ofor (int i = 0; i < upperBound; i++)
+    call GpGenerateReturnBraces()
 endfunction
 
 function! CsGenerateSwitch()
-    call append(".", [
-                \"switch (value)",
-                \"{",
-                \"\tcase caseOne:",
-                \"\t\tbreak;",
-                \"\tcase caseTwo:",
-                \"\t\tbreak;",
-                \"\tdefault:",
-                \"\t\tbreak;",
-                \"}"])
+    normal! oswitch (value)
+    call GpGenerateReturnBraces()
+    normal! Ocase caseOne:
+    normal! obreak;
+    normal! ocase caseTwo:
+    normal! obreak;
+    normal! odefault:
+    normal! obreak;
+endfunction
+
+" Function Structures
+" ===================
+function! CsGenerateMethodStructure()
+    normal! opublic void MethodName
+    call GpGenerateMethodEnding()
 endfunction
 
 " Comment Structures
 " ==================
 function! CsGenerateClassComments()
-    call append(".", [
-                \"//Private Variables",
-                \"//Properties",
-                \"//Constructor",
-                \"//Public Methods",
-                \"//Private Methods"])
+    normal! o//Private Variables
+    normal! o//Properties
+    normal! o//Constructor
+    normal! o//Public Methods
+    normal! o//Private Methods
 endfunction
 
 function! CsGenerateFullClassComments()
-    call append(".", [
-                \"//Public Constants",
-                \"//Private Constants",
-                \"//Private Variables",
-                \"//Properties",
-                \"//Constructor",
-                \"//Public Methods",
-                \"//Private Methods"])
+    normal! o//Public Constants
+    normal! o//Private Constants
+    call CsGenerateClassComments()
 endfunction
 
 function! CsGenerateSummaryComment()
-    call append(".", [
-                \"///<summary>",
-                \"///",
-                \"///</summary>"])
+    normal! o///<summary>
+    normal! o/// 
+    normal! o///</summary>
+    normal! k$
 endfunction

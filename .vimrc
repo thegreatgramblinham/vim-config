@@ -1,4 +1,3 @@
-" This contains the behavior settings for vim that get initialized on
 " startup.
 "
 "Keybinding notation:
@@ -163,14 +162,13 @@ map <leader>zv :source $MYVIMRC<CR>
 let macroCommandPrefix = 'm'
 
 " General Text Macro Functions
-" Note: For whatever reason autocompPop is just launching/erroring with these macros?!
-" Not sure why currently.
-map <leader>m{ :AcpDisable<CR>$a<CR>{<CR>}<Esc>O <Esc>:AcpEnable<CR>a<BS>
-map <leader>m<C-{> :AcpDisable<CR>$a{<CR>}<Esc>O <Esc>:AcpEnable<CR>a<BS>
-"map <leader>m( :AcpDisable<CR>$a()<CR>{<CR>}<Esc>O <Esc>:AcpEnable<CR>a<BS>
+" ----------------------------
 map <leader>m( :call GpGenerateMethodEnding()<CR>
+map <leader>m{ :call GpGenerateReturnBraces()<CR>
+map <leader>m<C-{> :call GpGenerateEndLineBraces()<CR>
 
 " OpenSCAD Leader Macro Functions
+" -------------------------------
 let openScadCommandPrefix = 'o'
 
 " OpenSCAD Statements
@@ -193,21 +191,37 @@ map <leader>mod :call OsGenerateDifference()<CR>
 map <leader>moi :call OsGenerateIntersection()<CR>
 
 " C# Leader Macro Functions
+" -------------------------
 let csCommandPrefix = 's'
 
 " C# Statements
-map <leader>msfe :call CsGenerateForeach()<CR>
+map <leader>mse :call CsGenerateForeach()<CR>
 map <leader>msf :call CsGenerateFor()<CR>
 map <leader>mss :call CsGenerateSwitch()<CR>
 
+" C# Function Structures
+map <leader>msm :call CsGenerateMethodStructure()<CR>
+
 " C# Comments
-map <leader>mscc :call CsGenerateClassComments()<CR>
-map <leader>msCc :call CsGenerateFullClassComments()<CR>
-map <leader>mssc :call CsGenerateSummaryComment()<CR>
+map <leader>msc :call CsGenerateClassComments()<CR>
+map <leader>msC :call CsGenerateFullClassComments()<CR>
+map <leader>msu :call CsGenerateSummaryComment()<CR>
 
 " C++ Leader Macro Functions
-let cppCommandPrefix = '+'
+" --------------------------
+let cppCommandPrefix = 'p'
 
+" C++ Statements
+map <leader>mpe :call CppGenerateForeach()<CR>
+map <leader>mpf :call CppGenerateFor()<CR>
+map <leader>mps :call CppGenerateSwitch()<CR>
+
+" C++ Function Structures
+map <leader>mpl :call CppGenerateClassStructure()<CR>
+map <leader>mpm :call CppGenerateMethodStructure()<CR>
+
+" C++ Comments
+map <leader>msu :call CppGenerateSummaryComment()<CR>
 
 " Color Scheme Options
 " ====================
