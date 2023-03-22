@@ -1,4 +1,5 @@
-" startup.
+"
+" This file contains all Vim startup commands.
 "
 "Keybinding notation:
 "<S-...>  shift-key                      shift <S-
@@ -109,7 +110,10 @@ map <leader>p "+p
 map <leader>P "+P
 
 " Launch file tree
-map <leader>e :NERDTreeToggle<CR>
+" at current file's directory
+map <leader>E :Lexplore %:p:h<CR>
+" at root directory
+map <leader>e :Lexplore<CR>
 
 " Launch find and replace
 map <leader>r :%s//gc<Left><Left><Left>
@@ -151,6 +155,10 @@ map <leader>< :30winc <<CR>
 " Resize the current horizontally split window
 map <leader>- :10winc -<CR>
 map <leader>+ :10winc +<CR>
+" Fullscreen the current window
+map <leader>_ <C-w>_<C-w>\|
+" Equalizes all windows on the current tab
+map <leader>= <C-w>=
 
 " Reload the vimrc file
 map <leader>zv :source $MYVIMRC<CR>
@@ -221,7 +229,7 @@ map <leader>mpl :call CppGenerateClassStructure()<CR>
 map <leader>mpm :call CppGenerateMethodStructure()<CR>
 
 " C++ Comments
-map <leader>msu :call CppGenerateSummaryComment()<CR>
+map <leader>mpu :call CppGenerateSummaryComment()<CR>
 
 " Color Scheme Options
 " ====================
@@ -364,7 +372,7 @@ hi TabLineSel guibg=#d4bda8 guifg=#2c2926
 " Terminal Config
 " ===============
 " Set the default Vim terminal to bash
-set shell=bash
+set shell=bin/bash.exe
 
 " Set the terminal colorscheme
 let g:terminal_ansi_colors = [
@@ -394,13 +402,14 @@ set wildmode=longest:full
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.dll,*.pdb,*.mp4
 
-
-" NERDTree Plugin Config
-" ======================
-" Show hidden files by default
-let g:NERDTreeShowHidden=1
+" Netrw Config
+" ============
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_preview = 1
+let g:netrw_browse_split = 0
+let g:netrw_altv = 1
+let g:netrw_winsize = 22
 
 " Set the color of the directory highlighting
 hi Directory guifg=#d4bda8
-hi NERDTreeClosable guifg=#d4bda8
-hi NERDTreeOpenable guifg=#d4bda8
