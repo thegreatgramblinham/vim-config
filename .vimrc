@@ -160,6 +160,12 @@ map <leader>_ <C-w>_<C-w>\|
 " Equalizes all windows on the current tab
 map <leader>= <C-w>=
 
+" Cycle through open buffers
+map <leader>j :bnext<CR>
+map <leader>k :bprevious<CR>
+" List all open buffers
+map <leader>b :buffers<CR>
+
 " Reload the vimrc file
 map <leader>zv :source $MYVIMRC<CR>
 
@@ -201,6 +207,13 @@ map <leader>moi :call OsGenerateIntersection()<CR>
 " C# Leader Macro Functions
 " -------------------------
 let csCommandPrefix = 's'
+
+" When a C# files is opened, open the autocomplete file in a
+" background buffer for our popup to source from.
+autocmd BufNewFile,BufRead *.cs call LoadCSharpAutoCompletions()
+function! LoadCSharpAutoCompletions()
+    execute ":argadd " . $VIMHOME . "/autocompl/cSharpCompletionKeywords.ac"
+endfunction
 
 " C# Statements
 map <leader>mse :call CsGenerateForeach()<CR>
@@ -358,6 +371,19 @@ hi Pmenu guibg=#444444 guifg=#222222
 hi PmenuSel guibg=#d4bda8 guifg=#2c2926
 
 
+" AutoComplPop Config
+" ===================
+" Always enable
+let g:acp_enableAtStartup = 1
+
+" Always ignore case
+let g:acp_ignorecaseOption = 1
+
+" Allow the completion to search everywhere for suggestions
+" ('i' appears to allow cross buffer support)
+let g:acp_completeOption = '.,w,b,u,t,i'
+
+
 " Tab Line Config
 " ===============
 " Always show the tab line
@@ -372,7 +398,7 @@ hi TabLineSel guibg=#d4bda8 guifg=#2c2926
 " Terminal Config
 " ===============
 " Set the default Vim terminal to bash
-set shell=bin/bash.exe
+set shell=bash
 
 " Set the terminal colorscheme
 let g:terminal_ansi_colors = [
@@ -381,6 +407,7 @@ let g:terminal_ansi_colors = [
   \'#8C7BC6', '#6A6360', '#E7B0DE', '#657B83',
   \'#8C8073', '#6C71C4', '#A682B8', '#FDF6E3' ]
 
+" Set terminal colors
 hi Terminal guibg=#1E1206
 hi Terminal guifg=#DCD3CB
 hi StatusLineTerm guibg=#775f73 guifg=#e5ddd3
@@ -402,13 +429,22 @@ set wildmode=longest:full
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.dll,*.pdb,*.mp4
 
+
 " Netrw Config
 " ============
+" Whether to show the hint header
 let g:netrw_banner = 0
+
+" File format style. 3 = tree.
 let g:netrw_liststyle = 3
+
+" Keep focus in tree when opening files (not working?)
 let g:netrw_preview = 1
+
+" Reuse the same window when opening a file
 let g:netrw_browse_split = 0
-let g:netrw_altv = 1
+
+" Default size at open.
 let g:netrw_winsize = 22
 
 " Set the color of the directory highlighting
