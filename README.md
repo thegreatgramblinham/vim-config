@@ -5,8 +5,29 @@ This repository is based relative to the user's home directory.
 # Inclusions
  - [Jellybeans Colorscheme](https://github.com/nanotech/jellybeans.vim)
  - [OpenSCAD Syntax Highlighting](https://github.com/sirtaj/vim-openscad)
- - [NERDTree](https://github.com/preservim/nerdtree)
  - [AutoComplPop](https://www.vim.org/scripts/script.php?script_id=1879)
+
+# Tips
+- When compling Vim from source, navigate to the git repo and run the following commands:
+ ```
+ cd src
+ make distclean  # if Vim has already been compiled on the machine.
+ make
+ sudo make install
+ ```
+- To compile Vim with important features like clipboard support, run the following commands:
+  (also from the git repo directory)
+ ```
+ sudo apt install libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev
+ ./configure --with-features=huge --with-x
+ make
+ sudo make install
+ ```
+- Vim can edit remote files with the syntax:
+ ```
+ :e scp://user@host/<relative>/<path>/<from_home>.txt
+ :e scp://user@host//<absolute>/<path>/<from_root>.txt
+ ```
 
 # Shortcut Cheatsheet
 ```
