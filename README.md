@@ -6,6 +6,7 @@ This repository is based relative to the user's home directory.
  - [Jellybeans Colorscheme](https://github.com/nanotech/jellybeans.vim)
  - [OpenSCAD Syntax Highlighting](https://github.com/sirtaj/vim-openscad)
  - [AutoComplPop](https://www.vim.org/scripts/script.php?script_id=1879)
+ - [Fugitive](https://github.com/tpope/vim-fugitive)
 
 # Tips
 - When compling Vim from source, navigate to the git repo and run the following commands:

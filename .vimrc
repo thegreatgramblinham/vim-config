@@ -120,6 +120,9 @@ map <leader>r :%s//gc<Left><Left><Left>
 " Launch find and replace from system register content
 map <leader>R :%s/<C-r>+//gc<Left><Left><Left>
 
+" Launch find with contents of system register
+map <leader>/ /<C-r>+<CR>
+
 " Launch find all in working directory (noautocmd for speed)
 map <leader>f :noautocmd vimgrep  **/*<Left><Left><Left><Left><Left>
 " Launch find all in working directory from system register content
@@ -169,7 +172,36 @@ map <leader>b :buffers<CR>
 " Reload the vimrc file
 map <leader>zv :source $MYVIMRC<CR>
 
-"TODO reserve 'g' for git function prefix
+" Git Fugitive plugin leader commands
+let gitCommandPrefix = 'g'
+
+" Provides an overview similar to traditional 'git status'
+map <leader>gg :Git 
+map <leader>gs :Git<CR>
+
+map <leader>gd :Git diff<CR>
+map <leader>gD :Git difftool<CR>
+
+" Note that without the 'max-count' Fugitive will attempt to load
+" from the beginning of the git history.
+map <leader>gl :Git log --max-count=25<CR>
+
+map <leader>gb :Git branch -al<CR>
+
+map <leader>gh :Git checkout 
+" Checkout using the branch name from the system register
+map <leader>gH :Git checkout <C-r>+<CR>
+
+map <leader>gB :Git blame<CR>
+
+map <leader>ga :Git add 
+map <leader>gA :Git add .<CR>
+map <leader>gc :Git commit<CR>
+
+map <leader>gm :Git merge 
+map <leader>gM :Git mergetool<CR>
+
+map <leader>gr :Git rebase -i 
 
 " Leader Text Macros
 " ==================
