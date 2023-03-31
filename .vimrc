@@ -112,7 +112,7 @@ map <leader>P "+P
 " Launch file tree
 " at current file's directory
 map <leader>E :Lexplore %:p:h<CR>
-" at root directory
+" at root directory (this also works as a toggle command)
 map <leader>e :Lexplore<CR>
 
 " Launch find and replace
@@ -185,14 +185,14 @@ map <leader>gD :Git difftool<CR>
 " Note that without the 'max-count' Fugitive will attempt to load
 " from the beginning of the git history.
 map <leader>gl :Git log --max-count=25<CR>
+map <leader>gL :Git log -p --max-count=35<C-r>%<CR>
 
 map <leader>gb :Git branch -al<CR>
+map <leader>gB :Git blame<CR>
 
 map <leader>gh :Git checkout 
 " Checkout using the branch name from the system register
 map <leader>gH :Git checkout <C-r>+<CR>
-
-map <leader>gB :Git blame<CR>
 
 map <leader>ga :Git add 
 map <leader>gA :Git add .<CR>
@@ -202,6 +202,7 @@ map <leader>gm :Git merge
 map <leader>gM :Git mergetool<CR>
 
 map <leader>gr :Git rebase -i 
+
 
 " Leader Text Macros
 " ==================
