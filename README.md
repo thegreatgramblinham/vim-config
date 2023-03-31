@@ -5,6 +5,7 @@ This repository is based relative to the user's home directory.
 # Inclusions
  - [Jellybeans Colorscheme](https://github.com/nanotech/jellybeans.vim)
  - [OpenSCAD Syntax Highlighting](https://github.com/sirtaj/vim-openscad)
+ - [Arduino Syntax Highlighting](https://github.com/sudar/vim-arduino-syntax)
  - [AutoComplPop](https://www.vim.org/scripts/script.php?script_id=1879)
  - [Fugitive](https://github.com/tpope/vim-fugitive)
 
