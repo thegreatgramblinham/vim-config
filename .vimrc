@@ -124,9 +124,9 @@ map <leader>R :%s/<C-r>+//gc<Left><Left><Left>
 map <leader>/ /<C-r>+<CR>
 
 " Launch find all in working directory (noautocmd for speed)
-map <leader>f :noautocmd vimgrep  **/*<Left><Left><Left><Left><Left>
+map <leader>f :noautocmd vimgrep "" **/*<Left><Left><Left><Left><Left><Left>
 " Launch find all in working directory from system register content
-map <leader>F :noautocmd vimgrep <C-r>+ **/*
+map <leader>F :noautocmd vimgrep "<C-r>+" **/*
 
 " Open and close the quickfix window
 map <leader>x :copen 20<CR>
@@ -142,9 +142,12 @@ map <leader>Q :wqa<CR>
 " Recursively add all the working directory to our searchable path.
 set path+=**
 " Open search filter for filename
-map <leader>t :find *
+"map <leader>t :find *
+"" Open search filter for filename with the system register contents
+"map <leader>T :find *<C-r>+
+map <leader>t :FZF --preview cat\ {}<CR>
 " Open search filter for filename with the system register contents
-map <leader>T :find *<C-r>+
+map <leader>T :FZF -q <C-r>+ --preview cat\ {}<CR>
 
 " Open a shell window
 map <leader>s :terminal<CR>
@@ -482,3 +485,8 @@ let g:netrw_winsize = 22
 
 " Set the color of the directory highlighting
 hi Directory guifg=#d4bda8
+
+" fzf Config
+" ==========
+" Load the fzf.vim file that comes with the default installation
+source /usr/share/doc/fzf/examples/fzf.vim
