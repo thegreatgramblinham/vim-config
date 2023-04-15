@@ -139,15 +139,20 @@ map <leader>q :bd<CR>
 " Save all, close all and quit
 map <leader>Q :wqa<CR>
 
-" Recursively add all the working directory to our searchable path.
-set path+=**
-" Open search filter for filename
-"map <leader>t :find *
-"" Open search filter for filename with the system register contents
-"map <leader>T :find *<C-r>+
-map <leader>t :FZF --preview cat\ {}<CR>
-" Open search filter for filename with the system register contents
-map <leader>T :FZF -q <C-r>+ --preview cat\ {}<CR>
+" If fzf is installed, use that for our file search behaviour
+if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
+    " Open fuzzy search with file preview
+    map <leader>t :FZF --preview cat\ {}<CR>
+    " Open fuzzy search with the system register contents
+    map <leader>T :FZF -q <C-r>+ --preview cat\ {}<CR>
+else
+    " Recursively add all the working directory to our searchable path.
+    set path+=**
+    " Open search filter for filename
+    map <leader>t :find *
+    " Open search filter for filename with the system register contents
+    map <leader>T :find *<C-r>+
+endif
 
 " Open a shell window
 map <leader>s :terminal<CR>
@@ -488,5 +493,7 @@ hi Directory guifg=#d4bda8
 
 " fzf Config
 " ==========
-" Load the fzf.vim file that comes with the default installation
-source /usr/share/doc/fzf/examples/fzf.vim
+" Attempt to load the fzf.vim file that comes with the default installation
+if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
+    source /usr/share/doc/fzf/examples/fzf.vim
+endif
