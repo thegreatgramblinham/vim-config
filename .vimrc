@@ -170,10 +170,16 @@ map <leader>+ :10winc +<CR>
 map <leader>_ <C-w>_<C-w>\|
 " Equalizes all windows on the current tab
 map <leader>= <C-w>=
+" Move vertically and maximize
+map <leader>j <C-w>j<C-w>_
+map <leader>k <C-w>k<C-w>_
+" Move horizontally and maximize
+map <leader>h <C-w>h<C-w>\|
+map <leader>l <C-w>l<C-w>\|
 
 " Cycle through open buffers
-map <leader>j :bnext<CR>
-map <leader>k :bprevious<CR>
+map <leader><PageUp> :bnext<CR>
+map <leader><PageDown> :bprevious<CR>
 " List all open buffers
 map <leader>b :buffers<CR>
 
