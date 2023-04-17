@@ -32,11 +32,11 @@ function! CppGenerateClassStructure()
     call GpGenerateReturnBraces()
     normal! Opublic:
     normal! o//Public Variables
-    normal! o//Constructor
-    normal! o//Public Methods
-    normal! oprivate:
+    normal! oConstructor
+    normal! oPublic Methods
+    normal! o<BS><BS>private:
     normal! o//Private Variables
-    normal! o//Private Methods
+    normal! oPrivate Methods
     normal! j$a;
 endfunction
 
@@ -49,8 +49,8 @@ endfunction
 " ==================
 function! CppGenerateSummaryComment()
     normal! o///<summary>
-    normal! o/// 
-    normal! o///</summary>
+    normal! o 
+    normal! o</summary>
     normal! k$
 endfunction
 

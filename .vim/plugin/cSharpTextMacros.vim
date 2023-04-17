@@ -36,21 +36,21 @@ endfunction
 " ==================
 function! CsGenerateClassComments()
     normal! o//Private Variables
-    normal! o//Properties
-    normal! o//Constructor
-    normal! o//Public Methods
-    normal! o//Private Methods
+    normal! oProperties
+    normal! oConstructor
+    normal! oPublic Methods
+    normal! oPrivate Methods
 endfunction
 
 function! CsGenerateFullClassComments()
     normal! o//Public Constants
-    normal! o//Private Constants
+    normal! oPrivate Constants
     call CsGenerateClassComments()
 endfunction
 
 function! CsGenerateSummaryComment()
     normal! o///<summary>
-    normal! o/// 
-    normal! o///</summary>
+    normal! o 
+    normal! o</summary>
     normal! k$
 endfunction
