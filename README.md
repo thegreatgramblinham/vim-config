@@ -8,6 +8,8 @@ This repository is based relative to the user's home directory.
  - [Arduino Syntax Highlighting](https://github.com/sudar/vim-arduino-syntax)
  - [AutoComplPop](https://www.vim.org/scripts/script.php?script_id=1879)
  - [Fugitive](https://github.com/tpope/vim-fugitive)
+ - [vim-airline](https://github.com/vim-airline/vim-airline)
+ - [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 
 # Tips
 - When compling Vim from source, navigate to the git repo and run the following commands:

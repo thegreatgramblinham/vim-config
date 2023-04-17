@@ -503,3 +503,27 @@ hi Directory guifg=#d4bda8
 if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
     source /usr/share/doc/fzf/examples/fzf.vim
 endif
+
+" Airline Config
+" ==============
+" Turn on airline chevron tags
+let g:airline_powerline_fonts = 1
+
+" Set custom theme variant
+let g:airline_theme = 'deuscustom'
+
+" Replace the defaul mode tags with single letter variants
+let g:airline_mode_map = {
+    \ '__' : '--',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V-L',
+    \ '' : 'V-B',
+    \ 's'  : 'S',
+    \ 'S'  : 'S-L',
+    \ '' : 'S-B',
+    \ 't'  : 'T',
+    \ }
