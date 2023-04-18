@@ -455,7 +455,7 @@ let g:terminal_ansi_colors = [
   \'#8C8073', '#6C71C4', '#A682B8', '#FDF6E3' ]
 
 " Set terminal colors
-hi Terminal guibg=#1E1206
+hi Terminal guibg=#151515
 hi Terminal guifg=#DCD3CB
 hi StatusLineTerm guibg=#775f73 guifg=#e5ddd3
 hi StatusLineTermNC guibg=#484644 guifg=#252025
