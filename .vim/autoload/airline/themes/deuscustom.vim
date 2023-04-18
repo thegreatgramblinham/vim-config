@@ -57,6 +57,8 @@ let g:airline#themes#deuscustom#palette.visual = airline#themes#generate_color_m
 let g:airline#themes#deuscustom#palette.visual_modified = g:airline#themes#deuscustom#palette.normal_modified
 
 let s:IA1 = [ '#282C34', '#55585E', s:term_black, s:term_white ]
+" These grey colors don't match on purpose. Custom colors put here
+" to draw less attention to inactive bars.
 let s:IA2 = [ '#55585E', '#31353E', s:term_white, s:term_grey ]
 let s:IA3 = [ '#727883', '#242528', s:term_white, s:term_grey ]
 let g:airline#themes#deuscustom#palette.inactive = airline#themes#generate_color_map(s:IA1, s:IA2, s:IA3)
