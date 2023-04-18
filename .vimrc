@@ -101,7 +101,7 @@ map <ScrollWheelDown> <C-E>
 let mapleader = "\<BS>"
 
 " Hide search highlighting
-map <leader>h :noh<CR>
+map <leader>? :noh<CR>
 
 " Yank and Put to system register
 map <leader>y "+y
@@ -166,16 +166,18 @@ map <leader>< :30winc <<CR>
 " Resize the current horizontally split window
 map <leader>- :10winc -<CR>
 map <leader>+ :10winc +<CR>
-" Fullscreen the current window
-map <leader>_ <C-w>_<C-w>\|
+" Fullscreen the current window vertically
+map <leader>_ <C-w>_
+" Fullscreen the current window horizontally
+map <leader>\| <C-w>\|
 " Equalizes all windows on the current tab
 map <leader>= <C-w>=
-" Move vertically and maximize
-map <leader>j <C-w>j<C-w>_
-map <leader>k <C-w>k<C-w>_
-" Move horizontally and maximize
-map <leader>h <C-w>h<C-w>\|
-map <leader>l <C-w>l<C-w>\|
+" Move windows vertically
+map <leader>j <C-w>j
+map <leader>k <C-w>k
+" Move windows horizontally
+map <leader>h <C-w>h
+map <leader>l <C-w>l
 
 " Cycle through open buffers
 map <leader><PageUp> :bnext<CR>
@@ -508,6 +510,9 @@ endif
 " ==============
 " Turn on airline chevron tags
 let g:airline_powerline_fonts = 1
+
+" Turn on tab line extension as well.
+let g:airline#extensions#tabline#enabled = 1
 
 " Set custom theme variant
 let g:airline_theme = 'deuscustom'
