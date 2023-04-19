@@ -97,8 +97,12 @@ map <ScrollWheelDown> <C-E>
 
 " Leader Keybindings
 " ==================
-" Map leader key
-let mapleader = "\<BS>"
+" Map leader keys. Both space and backspace, the thumb keys on
+" my custom keyboard.
+nnoremap <SPACE> <Nop>
+map <SPACE> <leader>
+nnoremap <BS> <Nop>
+map <BS> <leader>
 
 " Hide search highlighting
 map <leader>? :noh<CR>
@@ -334,6 +338,7 @@ set cursorline
 
 " Highlight cursor line underneath the cursor vertically.
 set cursorcolumn
+
 
 " Always show cursor position
 set ruler
