@@ -8,6 +8,7 @@ This repository is based relative to the user's home directory.
  - [Arduino Syntax Highlighting](https://github.com/sudar/vim-arduino-syntax)
  - [AutoComplPop](https://www.vim.org/scripts/script.php?script_id=1879)
  - [Fugitive](https://github.com/tpope/vim-fugitive)
+ - [fzf](https://github.com/junegunn/fzf)
  - [vim-airline](https://github.com/vim-airline/vim-airline)
  - [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 
