@@ -149,6 +149,8 @@ if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
     map <leader>t :FZF --preview cat\ {}<CR>
     " Open fuzzy search with the system register contents
     map <leader>T :FZF -q <C-r>+ --preview cat\ {}<CR>
+    " Open fuzzy search at the supplied directory
+    map <leader><C-t> :FZF 
 else
     " Recursively add all the working directory to our searchable path.
     set path+=**
