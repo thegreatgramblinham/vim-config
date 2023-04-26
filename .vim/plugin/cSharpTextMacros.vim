@@ -48,6 +48,15 @@ function! CsGenerateFullClassComments()
     call CsGenerateClassComments()
 endfunction
 
+function! CsGenerateUnitTestComments()
+    normal! o//Private Constants
+    normal! oPrivate Variables
+    normal! oSetup
+    normal! oTeardown
+    normal! oMethods
+    normal! oTests
+endfunction
+
 function! CsGenerateSummaryComment()
     normal! o///<summary>
     normal! o 

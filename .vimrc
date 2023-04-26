@@ -164,7 +164,11 @@ endif
 map <leader>s :terminal<CR>
 
 " Open a new tab
-map <leader>n :tabnew<CR>
+map <leader>nt :tabnew<CR>
+" Open a new horizontal window split
+map <leader>ns <C-w>s
+" Open a new vertical window split
+map <leader>nv <C-w>v
 
 " Resize the current vertically split window
 map <leader>> :30winc ><CR>
@@ -281,6 +285,7 @@ map <leader>msm :call CsGenerateMethodStructure()<CR>
 " C# Comments
 map <leader>msc :call CsGenerateClassComments()<CR>
 map <leader>msC :call CsGenerateFullClassComments()<CR>
+map <leader>mst :call CsGenerateUnitTestComments()<CR>
 map <leader>msu :call CsGenerateSummaryComment()<CR>
 
 " C++ Leader Macro Functions
