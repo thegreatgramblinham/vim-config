@@ -96,6 +96,7 @@ CancellationToken
 CancellationTokenSource
 IsCancellationRequested
 ThrowIfCancellationRequested
+OperationCanceledException
 WeakReference
 
 Select
