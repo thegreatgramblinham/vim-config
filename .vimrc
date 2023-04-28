@@ -163,6 +163,9 @@ endif
 " Open a shell window
 map <leader>s :terminal<CR>
 
+" Spell correct the first entry in the suggestions
+map <leader>zz 1z=
+
 " Open a new tab
 map <leader>nt :tabnew<CR>
 " Open a new horizontal window split
