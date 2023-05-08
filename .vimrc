@@ -195,8 +195,19 @@ map <leader>l <C-w>l
 " Cycle through open buffers
 map <leader><PageUp> :bnext<CR>
 map <leader><PageDown> :bprevious<CR>
-" List all open buffers
-map <leader>b :buffers<CR>
+
+" List all open buffers and allow selection
+fun! ChooseBuf()
+    redir => buffers
+        silent ls
+    redir end
+
+    echo l:buffers
+    let l:choice = input('Enter buffer #: ')
+    execute ':edit +' . l:choice . 'buf'
+endfun
+command! ChooseBuf call ChooseBuf()
+nnoremap <Leader>b :call ChooseBuf()<CR>
 
 " Reload the vimrc file
 map <leader>zv :source $MYVIMRC<CR>
