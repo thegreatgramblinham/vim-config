@@ -1,13 +1,11 @@
 "
 " This file contains all Vim startup commands.
 "
-"Keybinding notation:
-"<S-...>  shift-key                      shift <S-
-"<C-...>  control-key                    control ctrl <C-
-"<M-...>  alt-key or meta-key            meta alt <M-
-"<A-...>  same as <M-...>                <A-
-"<D-...>  command-key (Macintosh only)   <D-
-
+" Useful help pages
+" =================
+" :help key-notation
+" :help builtin-functions
+"
 " General settings
 " ================
 " Disable compatibility with vi which can cause unexpected issues.
@@ -48,9 +46,6 @@ filetype indent on
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 :augroup END
 
-" Enable spellchecking (disabled for now).
-"set spell
-
 " Set mouse mode
 " Set mouse in "command-line"(c) mode allows for use of terminal context menu
 " and selection. Another popular option is 'a', which allows for selection
@@ -83,6 +78,10 @@ set belloff=all
 
 " Save the last N commands used in vim for historical lookback
 set history=200
+
+" Allow for unsaved changes to exist in background buffers. Aka, no save
+" requirement when swapping away from the current buffer.
+set hidden
 
 
 " Custom Keybindings
@@ -196,7 +195,8 @@ map <leader>l <C-w>l
 map <leader><PageUp> :bnext<CR>
 map <leader><PageDown> :bprevious<CR>
 
-" List all open buffers and allow selection
+" List all open buffers in a menu and allow selection
+" TODO this throws an error if the current window's buffer is the default buffer?
 fun! ChooseBuf()
     redir => buffers
         silent ls
@@ -538,6 +538,7 @@ endif
 let g:airline_powerline_fonts = 1
 
 " Turn on tab line extension as well.
+" TODO work on this tab view config. It gets super messy.
 let g:airline#extensions#tabline#enabled = 1
 
 " Set custom theme variant
