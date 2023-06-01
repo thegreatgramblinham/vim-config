@@ -150,6 +150,13 @@ if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
     map <leader>T :FZF -q <C-r>+ --preview cat\ {}<CR>
     " Open fuzzy search at the supplied directory
     map <leader><C-t> :FZF 
+    " Yank word under cursor and fuzzy search for the file
+    function! GoToFileUnderCursor()
+        normal "+yiw
+        let filename = getreg("+")
+        execute ":FZF -q ".filename
+    endfunction
+    map <leader>gt :call GoToFileUnderCursor()<CR>
 else
     " Recursively add all the working directory to our searchable path.
     set path+=**
@@ -197,7 +204,7 @@ map <leader><PageDown> :bprevious<CR>
 
 " List all open buffers in a menu and allow selection
 " TODO this throws an error if the current window's buffer is the default buffer?
-fun! ChooseBuf()
+function! ChooseBuf()
     redir => buffers
         silent ls
     redir end
@@ -205,43 +212,17 @@ fun! ChooseBuf()
     echo l:buffers
     let l:choice = input('Enter buffer #: ')
     execute ':edit +' . l:choice . 'buf'
-endfun
+endfunction
 command! ChooseBuf call ChooseBuf()
 nnoremap <Leader>b :call ChooseBuf()<CR>
 
 " Reload the vimrc file
 map <leader>zv :source $MYVIMRC<CR>
 
-" Git Fugitive plugin leader commands
-let gitCommandPrefix = 'g'
-
-" Provides an overview similar to traditional 'git status'
+" Git Fugitive plugin leader command
 map <leader>gg :Git 
-map <leader>gs :Git<CR>
-
 map <leader>gd :Git diff<CR>
-map <leader>gD :Git difftool<CR>
-
-" Note that without the 'max-count' Fugitive will attempt to load
-" from the beginning of the git history.
-map <leader>gl :Git log --max-count=25<CR>
-map <leader>gL :Git log -p --max-count=35<C-r>%<CR>
-
-map <leader>gb :Git branch -al<CR>
-map <leader>gB :Git blame<CR>
-
-map <leader>gh :Git checkout 
-" Checkout using the branch name from the system register
-map <leader>gH :Git checkout <C-r>+<CR>
-
-map <leader>ga :Git add 
-map <leader>gA :Git add .<CR>
-map <leader>gc :Git commit<CR>
-
-map <leader>gm :Git merge 
-map <leader>gM :Git mergetool<CR>
-
-map <leader>gr :Git rebase -i 
+map <leader>gm :Git mergetool<CR>
 
 
 " Leader Text Macros
