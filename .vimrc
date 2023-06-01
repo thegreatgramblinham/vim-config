@@ -83,6 +83,8 @@ set history=200
 " requirement when swapping away from the current buffer.
 set hidden
 
+" Detect when a file has changed external to Vim and auto update accordingly
+set autoread
 
 " Custom Keybindings
 " ==================
