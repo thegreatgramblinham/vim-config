@@ -124,6 +124,14 @@ map <leader>e :Lexplore<CR>
 map <leader>r :%s//gc<Left><Left><Left>
 " Launch find and replace from system register content
 map <leader>R :%s/<C-r>+//gc<Left><Left><Left>
+" Yank word under cursor and put it into a find and replace statement as the target.
+function! ReplaceAllUnderCursor()
+    normal "+yiw
+    let replaceTarget = getreg("+")
+    let replaceWith = input("Beginning find and replace of \"".replaceTarget."\" in current file.\nEnter replacement text:\n")
+    execute ":%s/".replaceTarget."/".replaceWith."/gc"
+endfunction
+map <leader>gr :call ReplaceAllUnderCursor()<CR>
 
 " Launch find with contents of system register
 map <leader>/ /<C-r>+<CR>
@@ -132,6 +140,14 @@ map <leader>/ /<C-r>+<CR>
 map <leader>f :noautocmd vimgrep "" **/*<Left><Left><Left><Left><Left><Left>
 " Launch find all in working directory from system register content
 map <leader>F :noautocmd vimgrep "<C-r>+" **/*
+" Yank word under cursor and put it into a vimgrep query
+function! FindAllUnderCursor()
+    normal "+yiw
+    let searchTarget = getreg("+")
+    let ext = input("Beginning search for \"".searchTarget."\" in working directory.\nPress 'Enter' to search all files, or provide an extension now:\n(e.g. .txt, .cs, .json, etc.)\n")
+    execute ":noautocmd vimgrep \"".searchTarget."\" **/*".ext
+endfunction
+map <leader>gf :call FindAllUnderCursor()<CR>
 
 " Open and close the quickfix window
 map <leader>x :copen 20<CR>
