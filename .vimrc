@@ -239,8 +239,6 @@ map <leader>zv :source $MYVIMRC<CR>
 
 " Git Fugitive plugin leader command
 map <leader>gg :Git 
-map <leader>gd :Git diff<CR>
-map <leader>gm :Git mergetool<CR>
 
 
 " Leader Text Macros
