@@ -228,7 +228,7 @@ function! ChooseBuf()
     redir end
 
     echo l:buffers
-    let l:choice = input('Enter buffer #: ')
+    let l:choice = input('Enter buffer # to swap to: ')
     execute ':edit +' . l:choice . 'buf'
 endfunction
 command! ChooseBuf call ChooseBuf()
