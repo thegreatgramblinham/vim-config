@@ -6,8 +6,15 @@
 " :help key-notation
 " :help builtin-functions
 "
-" Ideas:
+" TODO Ideas:
 " - Vim function that inspects word under cursor and toggles true/false.
+" - C text macros.
+"    ///Imports
+"    ///Global Variables
+"    ///Function Declarations
+"    ///Static (Private) Functions
+"    ///Public Functions
+"
 "
 " General settings
 " ================
