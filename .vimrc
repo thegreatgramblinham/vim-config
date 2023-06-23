@@ -6,6 +6,9 @@
 " :help key-notation
 " :help builtin-functions
 "
+" Ideas:
+" - Vim function that inspects word under cursor and toggles true/false.
+"
 " General settings
 " ================
 " Disable compatibility with vi which can cause unexpected issues.
