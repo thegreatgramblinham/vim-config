@@ -243,6 +243,11 @@ map <leader>zv :source $MYVIMRC<CR>
 " Git Fugitive plugin leader command
 map <leader>gg :Git 
 
+" Include the current file in a diff
+map <leader>d :diffthis<CR>
+" Exit the current diff
+map <leader>gd :diffoff<CR>
+
 
 " Leader Text Macros
 " ==================
