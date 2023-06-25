@@ -222,9 +222,15 @@ map <leader>= <C-w>=
 " Move windows vertically
 map <leader>j <C-w>j
 map <leader>k <C-w>k
+" Move windows vertically and fullscreen vertically
+map <leader>J <C-w>j<C-w>_
+map <leader>K <C-w>k<C-w>_
 " Move windows horizontally
 map <leader>h <C-w>h
 map <leader>l <C-w>l
+" Move windows horizontally and fullscreen horizontally
+map <leader>H <C-w>h<C-w>\|
+map <leader>L <C-w>l<C-w>\|
 
 " Cycle through open buffers
 map <leader><PageUp> :bnext<CR>
