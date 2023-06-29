@@ -10,10 +10,10 @@
 " - Vim function that inspects word under cursor and toggles true/false.
 " - C text macros.
 "    ///Imports
-"    ///Global Variables
-"    ///Function Declarations
-"    ///Static (Private) Functions
-"    ///Public Functions
+"    ///Static Global Variables
+"    ///Private Declarations
+"    ///Static Functions
+"    ///Extern Functions
 "
 "
 " General settings
@@ -35,9 +35,6 @@ filetype on
 
 " Enable plugins and load plugin for the detected file type.
 filetype plugin on
-
-" Set the desired font for GUI applications like gVim
-set guifont=JetBrains_Mono_NL:h10
 
 " Load an indent file for the detected file type.
 filetype indent on
@@ -95,6 +92,21 @@ set hidden
 
 " Detect when a file has changed external to Vim and auto update accordingly
 set autoread
+
+
+" GVim Options
+" ============
+if has("gui_running")
+    " Set the desired font for GUI applications like gVim
+    set guifont=JetBrains_Mono_NL:h10
+
+    " Hide menu bar
+    set guioptions -=m
+
+    " Hide tool bar
+    set guioptions -=T
+endif
+
 
 " Custom Keybindings
 " ==================
