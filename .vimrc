@@ -163,18 +163,18 @@ map <leader>gr :call ReplaceAllUnderCursor()<CR>
 " Launch find with contents of system register
 map <leader>/ /<C-r>+<CR>
 
-" Launch find all in working directory (noautocmd for speed)
-map <leader>f :noautocmd vimgrep "" **/*<Left><Left><Left><Left><Left><Left>
+" Set ripgrep to the default search command when 'grep' is used
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+" Create a new search command that will use rg and supress output
+command! -bar -nargs=1 Sgrep silent grep <q-args> | redraw!
+" Launch find all in working directory
+map <leader>f :SGrep 
+
 " Launch find all in working directory from system register content
-map <leader>F :noautocmd vimgrep "<C-r>+" **/*
+map <leader>F :SGrep <C-r>+<CR>
+
 " Yank word under cursor and put it into a vimgrep query
-function! FindAllUnderCursor()
-    normal "+yiw
-    let searchTarget = getreg("+")
-    let ext = input("Beginning search for \"".searchTarget."\" in working directory.\nPress 'Enter' to search all files, or provide an extension now:\n(e.g. .txt, .cs, .json, etc.)\n")
-    execute ":noautocmd vimgrep \"".searchTarget."\" **/*".ext
-endfunction
-map <leader>gf :call FindAllUnderCursor()<CR>
+map <leader>gf "+yiw<leader>F
 
 " Open and close the quickfix window
 map <leader>x :copen 20<CR>
