@@ -168,10 +168,10 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 " Create a new search command that will use rg and supress output
 command! -bar -nargs=1 Sgrep silent grep <q-args> | redraw!
 " Launch find all in working directory
-map <leader>f :SGrep 
+map <leader>f :Sgrep 
 
 " Launch find all in working directory from system register content
-map <leader>F :SGrep <C-r>+<CR>
+map <leader>F :Sgrep <C-r>+<CR>
 
 " Yank word under cursor and put it into a vimgrep query
 map <leader>gf "+yiw<leader>F
