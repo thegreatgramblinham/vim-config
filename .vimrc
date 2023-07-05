@@ -11,10 +11,15 @@
 " - C text macros.
 "    ///Imports
 "    ///Static Global Variables
-"    ///Private Declarations
+"    ///Local Definitions
 "    ///Static Functions
 "    ///Extern Functions
-"
+" - Header macros.
+"   #ifndef HEADER_FILE_H
+"   #define HEADER_FILE_H
+"   ///Imports
+"   ///Function Definitions
+"   #endif
 "
 " General settings
 " ================
