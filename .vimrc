@@ -245,7 +245,8 @@ map <leader><PageDown> :bprevious<CR>
 " TODO this throws an error if the current window's buffer is the default buffer?
 function! ChooseBuf()
     redir => buffers
-        silent ls
+        " Silently list buffers with sorting(t)
+        silent ls t
     redir end
 
     echo l:buffers
