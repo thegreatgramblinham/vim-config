@@ -8,18 +8,6 @@
 "
 " TODO Ideas:
 " - Vim function that inspects word under cursor and toggles true/false.
-" - C text macros.
-"    ///Imports
-"    ///Static Global Variables
-"    ///Local Definitions
-"    ///Static Functions
-"    ///Extern Functions
-" - Header macros.
-"   #ifndef HEADER_FILE_H
-"   #define HEADER_FILE_H
-"   ///Imports
-"   ///Function Definitions
-"   #endif
 "
 " General settings
 " ================
@@ -352,6 +340,21 @@ map <leader>mpm :call CppGenerateMethodStructure()<CR>
 
 " C++ Comments
 map <leader>mpu :call CppGenerateSummaryComment()<CR>
+
+" C Leader Macro Functions
+" ------------------------
+let cCommandPrefix = 'c'
+
+" C++ Statements
+map <leader>mcf :call CGenerateFor()<CR>
+map <leader>mcs :call CGenerateSwitch()<CR>
+
+" C++ Function Structures
+map <leader>mcm :call CGenerateFunctionStructure()<CR>
+
+" C++ Comments
+map <leader>mcc :call CGenerateSourceFileComment()<CR>
+map <leader>mch :call CGenerateHeaderFileComment()<CR>
 
 " Color Scheme Options
 " ====================
