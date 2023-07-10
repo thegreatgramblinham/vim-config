@@ -85,7 +85,7 @@ set hidden
 
 " Detect when a file has changed external to Vim and auto update accordingly
 set autoread
-autocmd FocusGained,BufEnter * :checktime
+autocmd FocusGained,BufEnter * silent! execute "checktime"
 
 
 " GVim Options
