@@ -243,18 +243,14 @@ map <leader><PageUp> :bnext<CR>
 map <leader><PageDown> :bprevious<CR>
 
 " List all open buffers in a menu and allow selection
-" TODO this throws an error if the current window's buffer is the default buffer?
 function! ChooseBuf()
-    redir => buffers
-        " Silently list buffers with sorting(t)
-        silent ls t
-    redir end
-
-    echo l:buffers
+    " List buffers with sorting(t)
+    ls t
     let l:choice = input('Enter buffer # to swap to: ')
-    execute ':edit +' . l:choice . 'buf'
+    if (!empty(l:choice))
+        execute ':b'.l:choice
+    endif
 endfunction
-command! ChooseBuf call ChooseBuf()
 nnoremap <Leader>b :call ChooseBuf()<CR>
 
 " Reload the vimrc file
