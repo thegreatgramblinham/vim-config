@@ -5,9 +5,11 @@
 " =================
 " :help key-notation
 " :help builtin-functions
+
 "
-" TODO Ideas:
-" - Vim function that inspects word under cursor and toggles true/false.
+" TODO Settings/Script Ideas
+" ==========================
+"
 "
 " General settings
 " ================
@@ -263,6 +265,23 @@ map <leader>gg :Git
 map <leader>d :diffthis<CR>
 " Exit the current diff
 map <leader>gd :diffoff<CR>
+
+" 'Invert' the current word underneath the cursor
+function! InvertUnderCursor()
+    let wordToInvert = expand("<cword>")
+    if (wordToInvert == "true")
+        normal! ciwfalse
+    elseif (wordToInvert == "false")
+        normal! ciwtrue
+    elseif (wordToInvert == "1")
+        normal! r0
+    elseif (wordToInvert == "0")
+        normal! r1
+    else
+        normal! ebi!
+    endif
+endfunction
+map <leader>i :call InvertUnderCursor()<CR>
 
 
 " Leader Text Macros
