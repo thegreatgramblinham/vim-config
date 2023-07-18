@@ -251,7 +251,6 @@ function! ChooseBuf()
     ls t
     echo 'Enter buffer # to swap to: (e.g. "4")'
     let l:choice = input('>')
-    echo "\n"
     if (!empty(l:choice))
         execute ':b'.l:choice
     endif
@@ -263,9 +262,8 @@ function! DeleteBuf()
     ls t
     echo 'Enter buffer #(s) to delete: (e.g "7" or "12 5 8")'
     let l:choice = input('>')
-    echo "\n"
     if (!empty(l:choice))
-        execute ':bd '.l:choice
+        silent execute ':bd '.l:choice
     endif
 endfunction
 nnoremap <Leader>gb :call DeleteBuf()<CR>
