@@ -249,12 +249,26 @@ map <leader><PageDown> :bprevious<CR>
 function! ChooseBuf()
     " List buffers with sorting(t)
     ls t
-    let l:choice = input('Enter buffer # to swap to: ')
+    echo 'Enter buffer # to swap to: (e.g. "4")'
+    let l:choice = input('>')
+    echo "\n"
     if (!empty(l:choice))
         execute ':b'.l:choice
     endif
 endfunction
 nnoremap <Leader>b :call ChooseBuf()<CR>
+" List all open buffers in a menu and allow deletion
+function! DeleteBuf()
+    " List buffers with sorting(t)
+    ls t
+    echo 'Enter buffer #(s) to delete: (e.g "7" or "12 5 8")'
+    let l:choice = input('>')
+    echo "\n"
+    if (!empty(l:choice))
+        execute ':bd '.l:choice
+    endif
+endfunction
+nnoremap <Leader>gb :call DeleteBuf()<CR>
 
 " Reload the vimrc file
 map <leader>zv :source $MYVIMRC<CR>
@@ -279,6 +293,7 @@ function! InvertUnderCursor()
     elseif (wordToInvert == "0")
         normal! r1
     else
+        " TODO remove ! if already there
         normal! ebi!
     endif
 endfunction
