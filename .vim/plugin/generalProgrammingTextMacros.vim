@@ -9,14 +9,11 @@ function! GpGenerateMethodEnding()
 endfunction
 
 function! GpGenerateReturnBraces()
-    normal! o
-    normal! <<a{
-    normal! o
-    normal! <<a}
+    normal! o{
+    normal! o}
 endfunction
 
 function! GpGenerateEndLineBraces()
-    normal! $a{
-    normal! o
-    normal! <<a}
+    normal! A{
+    normal! o}
 endfunction
