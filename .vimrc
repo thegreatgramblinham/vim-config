@@ -133,6 +133,9 @@ map <leader>Y "+Y
 map <leader>p "+p
 map <leader>P "+P
 
+" Hard delete to the black hole register
+map <leader>d "_d<CR>
+
 " Launch file tree
 " at current file's directory
 map <leader>E :Lexplore %:p:h<CR>
@@ -275,9 +278,9 @@ map <leader>zv :source $MYVIMRC<CR>
 map <leader>gg :Git 
 
 " Include the current file in a diff
-map <leader>d :diffthis<CR>
+map <leader>zd :diffthis<CR>
 " Exit the current diff
-map <leader>gd :diffoff<CR>
+map <leader>zgd :diffoff<CR>
 
 " 'Invert' the current word underneath the cursor
 function! InvertUnderCursor()
