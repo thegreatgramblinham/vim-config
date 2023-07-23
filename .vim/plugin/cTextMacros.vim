@@ -41,7 +41,7 @@ function! CGenerateHeaderFileComment()
     normal! o#ifndef HEADER_FILE_H
     normal! o#define HEADER_FILE_H
     normal! o#endif
-    normal! j
-    normal! o///Imports
+    normal! O///Imports
+    normal! oConstants
     normal! oFunction Definitions
 endfunction
