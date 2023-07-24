@@ -151,7 +151,9 @@ function! ReplaceAllUnderCursor()
     normal "+yiw
     let replaceTarget = getreg("+")
     let replaceWith = input("Beginning find and replace of \"".replaceTarget."\" in current file.\nEnter replacement text:\n")
-    execute ":%s/".replaceTarget."/".replaceWith."/gc"
+    if (!empty(replaceWith))
+        execute ":%s/".replaceTarget."/".replaceWith."/gc"
+    endif
 endfunction
 map <leader>gr :call ReplaceAllUnderCursor()<CR>
 
