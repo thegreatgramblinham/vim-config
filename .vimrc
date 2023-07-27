@@ -149,10 +149,10 @@ map <leader>R :%s/<C-r>+//gc<Left><Left><Left>
 " Yank word under cursor and put it into a find and replace statement as the target.
 function! ReplaceAllUnderCursor()
     normal "+yiw
-    let replaceTarget = getreg("+")
-    let replaceWith = input("Beginning find and replace of \"".replaceTarget."\" in current file.\nEnter replacement text:\n")
-    if (!empty(replaceWith))
-        execute ":%s/".replaceTarget."/".replaceWith."/gc"
+    let l:replaceTarget = getreg("+")
+    let l:replaceWith = input("Beginning find and replace of \"".l:replaceTarget."\" in current file.\nEnter replacement text:\n")
+    if (!empty(l:replaceWith))
+        execute ":%s/".l:replaceTarget."/".l:replaceWith."/gc"
     endif
 endfunction
 map <leader>gr :call ReplaceAllUnderCursor()<CR>
@@ -195,8 +195,8 @@ if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
     " Yank word under cursor and fuzzy search for the file
     function! GoToFileUnderCursor()
         normal "+yiw
-        let filename = getreg("+")
-        execute ":FZF -q ".filename
+        let l:filename = getreg("+")
+        execute ":FZF -q ".l:filename
     endfunction
     map <leader>gt :call GoToFileUnderCursor()<CR>
 else
@@ -252,8 +252,9 @@ map <leader><PageDown> :bprevious<CR>
 
 " List all open buffers in a menu and allow selection
 function! ChooseBuf()
-    " List buffers with sorting(t)
-    ls t
+    " List buffers with time-based sorting (t)
+    let l:bufferList = execute("ls t")
+    echo system("echo \'".l:bufferList."\' | awk -F \'\"\' \'{print $1,$2}\'")
     echo 'Enter buffer # to swap to: (e.g. "4")'
     let l:choice = input('>')
     if (!empty(l:choice))
@@ -261,10 +262,21 @@ function! ChooseBuf()
     endif
 endfunction
 nnoremap <Leader>b :call ChooseBuf()<CR>
+" Swap to the previous open buffer
+function! SwapToPrevBuf()
+    let l:bufferList = execute("ls t")
+    let l:prevBufLine = system('echo "'.l:bufferList.'" | sed -n 3p')
+    let l:prevBufNumber = system('echo "'.l:prevBufLine."\" | awk \'{print $1}\'")
+    if (!empty(l:prevBufNumber))
+        execute ':b'.l:prevBufNumber
+    endif
+endfunction
+nnoremap <Leader><C-b> :call SwapToPrevBuf()<CR>
 " List all open buffers in a menu and allow deletion
 function! DeleteBuf()
     " List buffers with sorting(t)
-    ls t
+    let l:bufferList = execute("ls t")
+    echo system("echo \'".l:bufferList."\' | awk -F \'\"\' \'{print $1,$2}\'")
     echo 'Enter buffer #(s) to delete: (e.g "7" or "12 5 8")'
     let l:choice = input('>')
     if (!empty(l:choice))
@@ -286,14 +298,14 @@ map <leader>zgd :diffoff<CR>
 
 " 'Invert' the current word underneath the cursor
 function! InvertUnderCursor()
-    let wordToInvert = expand("<cword>")
-    if (wordToInvert == "true")
+    let l:wordToInvert = expand("<cword>")
+    if (l:wordToInvert == "true")
         normal! ciwfalse
-    elseif (wordToInvert == "false")
+    elseif (l:wordToInvert == "false")
         normal! ciwtrue
-    elseif (wordToInvert == "1")
+    elseif (l:wordToInvert == "1")
         normal! r0
-    elseif (wordToInvert == "0")
+    elseif (l:wordToInvert == "0")
         normal! r1
     else
         " TODO remove ! if already there
