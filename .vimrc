@@ -10,6 +10,7 @@
 " TODO Settings/Script Ideas
 " ==========================
 " - Change leader 'go to' commands to utilize a standard, non-system register
+" - Bash/shell programming text macros
 "
 "
 " General settings
