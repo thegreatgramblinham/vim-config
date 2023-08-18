@@ -11,6 +11,7 @@
 " ==========================
 " - Change leader 'go to' commands to utilize a standard, non-system register
 " - Bash/shell programming text macros
+" - Delete current buffer and return to previous
 "
 "
 " General settings
