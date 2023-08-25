@@ -215,6 +215,8 @@ map <leader>s :terminal<CR>
 
 " Spell correct the first entry in the suggestions
 map <leader>zz 1z=
+" Toggle spellcheck
+map <leader>zs :set spell!<CR>
 
 " Open a new tab
 map <leader>nt :tabnew<CR>
