@@ -218,6 +218,9 @@ map <leader>zz 1z=
 " Toggle spellcheck
 map <leader>zs :set spell!<CR>
 
+" Toggle word wrap
+map <leader>zw :set wrap!<CR>
+
 " Open a new tab
 map <leader>nt :tabnew<CR>
 " Open a new horizontal window split
@@ -312,8 +315,15 @@ function! InvertUnderCursor()
     elseif (l:wordToInvert == "0")
         normal! r1
     else
-        " TODO remove ! if already there
-        normal! ebi!
+        " Otherwise move to the start of the word and inspect the
+        " the character right before the start.
+        normal! eb
+        let l:startingChar = getline('.')[charcol('.') - 2]
+        if (l:startingChar == "!")
+            normal! hx
+        else
+            normal! i!
+        endif
     endif
 endfunction
 map <leader>i :call InvertUnderCursor()<CR>
