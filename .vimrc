@@ -11,7 +11,6 @@
 " ==========================
 " - Change leader 'go to' commands to utilize a standard, non-system register
 " - Bash/shell programming text macros
-" - Delete current buffer and return to previous
 "
 "
 " General settings
@@ -181,8 +180,8 @@ map <leader>X :cclose<CR>
 
 " Save all open buffers
 map <leader>w :wa<CR>
-" Close the current buffer
-map <leader>q :bd<CR>
+" Close the current buffer and display the previously open one
+map <leader>q :b#\|bd#<CR>
 " Save all, close all and quit
 map <leader>Q :wqa<CR>
 
@@ -270,15 +269,7 @@ function! ChooseBuf()
 endfunction
 nnoremap <Leader>b :call ChooseBuf()<CR>
 " Swap to the previous open buffer
-function! SwapToPrevBuf()
-    let l:bufferList = execute("ls t")
-    let l:prevBufLine = system('echo "'.l:bufferList.'" | sed -n 3p')
-    let l:prevBufNumber = system('echo "'.l:prevBufLine."\" | awk \'{print $1}\'")
-    if (!empty(l:prevBufNumber))
-        execute ':b'.l:prevBufNumber
-    endif
-endfunction
-nnoremap <Leader><C-b> :call SwapToPrevBuf()<CR>
+nnoremap <Leader><C-b> :b#<CR>
 " List all open buffers in a menu and allow deletion
 function! DeleteBuf()
     " List buffers with sorting(t)
