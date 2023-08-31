@@ -260,9 +260,10 @@ map <leader><PageDown> :bprevious<CR>
 
 " List all open buffers in a menu and allow selection
 function! ChooseBuf()
-    " List buffers with time-based sorting (t)
+    " List buffers with time-based sorting (t) TODO print dir
     let l:bufferList = execute("ls t")
-    echo system("echo \'".l:bufferList."\' | awk -F \'\"\' \'{print $1,$2}\'")
+    let l:fileNameColWidth = 50
+    echo system("echo \'".l:bufferList."\' | awk -F \'\"\' \' { idx=split($2,parts,\"/\"); printf \"%s %-".l:fileNameColWidth."s \\n\", $1, parts[idx] }\'")
     echo 'Enter buffer # to swap to: (e.g. "4")'
     let l:choice = input('>')
     if (!empty(l:choice))
