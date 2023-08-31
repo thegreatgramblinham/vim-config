@@ -258,12 +258,28 @@ map <leader>L <C-w>l<C-w>\|
 map <leader><PageUp> :bnext<CR>
 map <leader><PageDown> :bprevious<CR>
 
+" List all open buffers
+function! ListBuf()
+    " List buffers with time-based sorting (t) TODO print dir
+    let l:bufferIndexColWidth = 11
+    let l:fileNameColWidth = 50
+    echo "\n"
+    echo '==================='
+    echo '[[ OPEN BUFFFERS ]]'
+    echo '==================='
+    let l:bufferList = execute("ls t")
+    echo system("echo \'".l:bufferList."\'
+                    \ | awk -F \'\"\'
+                    \ \'{
+                        \idx=split($2,parts,\"/\");
+                        \printf(\"%".l:bufferIndexColWidth."s %-".l:fileNameColWidth."s %s\\n\", $1, parts[idx], $2);
+                    \ }\'
+                \")
+    echo "\n"
+endfunction
 " List all open buffers in a menu and allow selection
 function! ChooseBuf()
-    " List buffers with time-based sorting (t) TODO print dir
-    let l:bufferList = execute("ls t")
-    let l:fileNameColWidth = 50
-    echo system("echo \'".l:bufferList."\' | awk -F \'\"\' \' { idx=split($2,parts,\"/\"); printf \"%s %-".l:fileNameColWidth."s \\n\", $1, parts[idx] }\'")
+    call ListBuf()
     echo 'Enter buffer # to swap to: (e.g. "4")'
     let l:choice = input('>')
     if (!empty(l:choice))
@@ -283,9 +299,7 @@ endfunction
 nnoremap <Leader><C-b> :call SwapToPrevBuf()<CR>
 " List all open buffers in a menu and allow deletion
 function! DeleteBuf()
-    " List buffers with sorting(t)
-    let l:bufferList = execute("ls t")
-    echo system("echo \'".l:bufferList."\' | awk -F \'\"\' \'{print $1,$2}\'")
+    call ListBuf()
     echo 'Enter buffer #(s) to delete: (e.g "7" or "12 5 8")'
     let l:choice = input('>')
     if (!empty(l:choice))
