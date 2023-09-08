@@ -182,7 +182,9 @@ map <leader>X :cclose<CR>
 map <leader>w :wa<CR>
 " Close the current buffer
 map <leader>q :bd<CR>
-" Swap to the alternate file and delete what was previously the alt
+" Close all open buffers
+map <leader><C-q> :bufdo bd<CR>
+" Swap to the alternate file and close what was previously the alt
 map <leader>gq :b#\|bd#<CR>
 " Save all, close all and quit
 map <leader>Q :wqa<CR>
