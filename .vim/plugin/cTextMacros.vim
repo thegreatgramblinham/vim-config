@@ -20,10 +20,16 @@ function! CGenerateSwitch()
     normal! obreak;
 endfunction
 
-" Function Structures
+" Functions and Structures
 " ===============
-function! CGenerateFunctionStructure()
-    normal! ovoid methodName(void)
+function! CGenerateStructTemplate()
+    normal ostruct struct_type_s
+    call GpGenerateReturnBraces()
+    normal a;
+endfunction
+
+function! CGenerateFunctionTemplate()
+    normal! ovoid functionName(void)
     call GpGenerateReturnBraces()
 endfunction
 
@@ -32,8 +38,8 @@ endfunction
 function! CGenerateSourceFileComment()
     normal! o///Imports
     normal! oStatic Constants
-    normal! oLocal Declarations
     normal! oStatic Global Variables
+    normal! oLocal Declarations
     normal! oStatic Functions
     normal! oExtern Functions
 endfunction
@@ -44,5 +50,6 @@ function! CGenerateHeaderFileComment()
     normal! o#endif
     normal! O///Imports
     normal! oConstants
-    normal! oExtern Declarations
+    normal! oType Declarations
+    normal! oFunction Declarations
 endfunction

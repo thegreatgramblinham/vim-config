@@ -6,7 +6,6 @@
 " :help key-notation
 " :help builtin-functions
 
-"
 " TODO Settings/Script Ideas
 " ==========================
 " - Change leader 'go to' commands to utilize a standard, non-system register
@@ -425,14 +424,15 @@ map <leader>mpu :call CppGenerateSummaryComment()<CR>
 " ------------------------
 let cCommandPrefix = 'c'
 
-" C++ Statements
+" C Statements
 map <leader>mcf :call CGenerateFor()<CR>
 map <leader>mcs :call CGenerateSwitch()<CR>
 
-" C++ Function Structures
-map <leader>mcm :call CGenerateFunctionStructure()<CR>
+" C Function Structures
+map <leader>mct :call CGenerateStructTemplate()<CR>
+map <leader>mcn :call CGenerateFunctionTemplate()<CR>
 
-" C++ Comments
+" C Comments
 map <leader>mcc :call CGenerateSourceFileComment()<CR>
 map <leader>mch :call CGenerateHeaderFileComment()<CR>
 
