@@ -6,6 +6,14 @@ readonly
 static
 object
 new
+using
+
+class
+struct
+interface
+enum
+this
+where
 
 unchecked
 return
@@ -14,6 +22,7 @@ continue
 
 foreach
 while
+switch
 
 region
 endregion
@@ -24,6 +33,8 @@ typeof
 int
 uint
 Int32
+long
+ulong
 Int64
 
 char

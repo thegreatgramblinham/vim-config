@@ -424,6 +424,14 @@ map <leader>mpu :call CppGenerateSummaryComment()<CR>
 " ------------------------
 let cCommandPrefix = 'c'
 
+" When a C# files is opened, open the autocomplete file in a
+" background buffer for our popup to source from.
+autocmd BufNewFile,BufRead *.c call LoadCAutoCompletions()
+autocmd BufNewFile,BufRead *.h call LoadCAutoCompletions()
+function! LoadCAutoCompletions()
+    execute ":argadd " . $VIMHOME . "/autocompl/cCompletionKeywords.ac"
+endfunction
+
 " C Statements
 map <leader>mcf :call CGenerateFor()<CR>
 map <leader>mcs :call CGenerateSwitch()<CR>
