@@ -144,6 +144,7 @@ assert.h
 malloc.h
 math.h
 stdlib.h
+stdint.h
 stdio.h
 signal.h
 string.h
