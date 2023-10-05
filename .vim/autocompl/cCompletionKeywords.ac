@@ -72,7 +72,10 @@ atoi
 atol
 calloc
 ceil
+clock
 cos
+ctime
+difftime
 exit
 exp
 fabs
@@ -91,6 +94,7 @@ getc
 getchar
 getenv
 gets
+gmtime
 isalnum
 isascii
 isblank
@@ -101,6 +105,7 @@ ispunct
 isspace
 isupper
 labs
+localtime
 longjmp
 malloc
 memcpy
@@ -132,13 +137,16 @@ strtoll
 strcat
 strcpy
 strlen
+system
 tan
+time
 toupper
 tolower
 to_string
 ungetc
 
 FILE
+NULL
 
 assert.h
 malloc.h
