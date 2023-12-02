@@ -130,6 +130,7 @@ stof
 stoul
 stould
 stoull
+strcmp
 strtod
 strtof
 strtol

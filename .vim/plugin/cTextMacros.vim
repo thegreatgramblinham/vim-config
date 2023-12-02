@@ -37,9 +37,9 @@ endfunction
 " ==================
 function! CGenerateSourceFileComment()
     normal! o///Imports
+    normal! oLocal Declarations
     normal! oStatic Constants
     normal! oStatic Global Variables
-    normal! oLocal Declarations
     normal! oStatic Functions
     normal! oExtern Functions
 endfunction
@@ -49,7 +49,7 @@ function! CGenerateHeaderFileComment()
     normal! o#define HEADER_FILE_H
     normal! o#endif
     normal! O///Imports
-    normal! oConstants
     normal! oType Declarations
+    normal! oConstants
     normal! oFunction Declarations
 endfunction
