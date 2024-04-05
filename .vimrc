@@ -345,6 +345,9 @@ function! InvertUnderCursor()
 endfunction
 map <leader>i :call InvertUnderCursor()<CR>
 
+" TODO implement a function to open all modified files within the Git
+" repo of the current directory as buffers.
+
 
 " Leader Text Macros
 " ==================
@@ -568,7 +571,7 @@ hi StatusLineNC guibg=#484644 guifg=#252025
 " Pmenu Config
 " ============
 " Set colorscheme
-hi Pmenu guibg=#444444 guifg=#222222
+hi Pmenu guibg=#444444 guifg=#C9A0A0
 hi PmenuSel guibg=#d4bda8 guifg=#2c2926
 
 
@@ -599,7 +602,7 @@ hi TabLineSel guibg=#d4bda8 guifg=#2c2926
 " Terminal Config
 " ===============
 " Set the default Vim terminal to bash
-set shell=bash
+set shell=zsh
 
 " Set the terminal colorscheme
 let g:terminal_ansi_colors = [
