@@ -583,6 +583,9 @@ let g:acp_enableAtStartup = 1
 " Always ignore case
 let g:acp_ignorecaseOption = 1
 
+" Allow popup to display after just one character
+let g:acp_behaviorKeywordLength = 1
+
 " Allow the completion to search everywhere for suggestions
 " ('i' appears to allow cross buffer support)
 let g:acp_completeOption = '.,w,b,u,t,i'
