@@ -164,7 +164,7 @@ map <leader>/ /<C-r>+<CR>
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 " Create a new search command that will use rg and supress output
 command! -bar -nargs=1 Sgrep silent grep <q-args> | redraw!
-" Launch find all in working directory
+" Launch find all in working directory. Trailing space is intentional.
 map <leader>f :Sgrep 
 
 " Launch find all in working directory from system register content
@@ -194,7 +194,8 @@ if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
     map <leader>t :FZF --preview cat\ {}<CR>
     " Open fuzzy search with the system register contents
     map <leader>T :FZF -q <C-r>+ --preview cat\ {}<CR>
-    " Open fuzzy search at the supplied directory
+    " Open fuzzy search at the supplied directory. Trailing space is
+    " intentional.
     map <leader><C-t> :FZF 
     " Yank word under cursor and fuzzy search for the file
     function! GoToFileUnderCursor()
@@ -312,7 +313,7 @@ nnoremap <Leader>gb :call DeleteBuf()<CR>
 " Reload the vimrc file
 map <leader>zv :source $MYVIMRC<CR>
 
-" Git Fugitive plugin leader command
+" Git Fugitive plugin leader command. Trailing space is intentional.
 map <leader>gg :Git 
 
 " Include the current file in a diff
@@ -345,8 +346,20 @@ function! InvertUnderCursor()
 endfunction
 map <leader>i :call InvertUnderCursor()<CR>
 
-" TODO implement a function to open all modified files within the Git
-" repo of the current directory as buffers.
+function! OpenAllGitModified()
+    " TODO still working on a way to abort the system call if git status
+    " fails. 'exit 1' seems to not work as expected.
+    let l:modifiedFilesString = system("(git status --porcelain || exit 1) | sed \'/^\\s*D/d\' | awk \'{print $2}\'")
+    if v:shell_error != 0
+        echo "Getting modified files failed."
+    else
+        let l:modifiedFiles = split(l:modifiedFilesString, '\n')
+        for f in l:modifiedFiles
+            execute ":argadd " . f
+        endfor
+    endif
+endfunction
+map <leader>zt :call OpenAllGitModified()<CR>
 
 
 " Leader Text Macros
@@ -670,7 +683,6 @@ endif
 let g:airline_powerline_fonts = 1
 
 " Turn on tab line extension as well.
-" TODO work on this tab view config. It gets super messy.
 let g:airline#extensions#tabline#enabled = 1
 
 " Set custom theme variant
