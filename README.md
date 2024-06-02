@@ -14,21 +14,24 @@ This repository is based relative to the user's home directory.
  - [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 
 # Tips
+- Before beginning a source build, ensure that you remove any apt vim package installs. They will prevent your compilied version from running.
+ ```
+ sudo apt remove vim && sudo apt autoremove
+ ```
+
 - When compling Vim from source, navigate to the git repo and run the following commands:
  ```
  cd src
  make distclean  # if Vim has already been compiled on the machine.
- make
- sudo make install
- ```
-- To compile Vim with important features like clipboard support, run the following commands:
-  (also from the git repo directory)
- ```
+ # To compile vim with features like clipboard support download the following packages and set the appropriate configuration.
  sudo apt install libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev
  ./configure --with-features=huge --with-x
+
+ # If you want the default features, you can just skip to here:
  make
  sudo make install
  ```
+
 - Vim can edit remote files with the syntax:
  ```
  :e scp://user@host/<relative>/<path>/<from_home>.txt
