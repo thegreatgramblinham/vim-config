@@ -215,6 +215,7 @@ endif
 
 " Open a shell window
 map <leader>s :terminal<CR>
+map <leader>S :vert terminal<CR>
 
 " Spell correct the first entry in the suggestions
 map <leader>zz 1z=
