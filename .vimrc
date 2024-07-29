@@ -194,9 +194,8 @@ if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
     map <leader>t :FZF --preview cat\ {}<CR>
     " Open fuzzy search with the system register contents
     map <leader>T :FZF -q <C-r>+ --preview cat\ {}<CR>
-    " Open fuzzy search at the supplied directory. Trailing space is
-    " intentional.
-    map <leader><C-t> :FZF 
+    " Open fuzzy search at the supplied directory. Start at home.
+    map <leader><C-t> :FZF ~/
     " Yank word under cursor and fuzzy search for the file
     function! GoToFileUnderCursor()
         normal "+yiw
@@ -215,7 +214,7 @@ endif
 
 " Open a shell window
 map <leader>s :terminal<CR>
-map <leader>S :vert terminal<CR>
+map <leader>S :botright vert terminal<CR>
 
 " Spell correct the first entry in the suggestions
 map <leader>zz 1z=
