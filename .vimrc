@@ -203,6 +203,7 @@ if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
         execute ":FZF -q ".l:filename
     endfunction
     map <leader>gt :call GoToFileUnderCursor()<CR>
+    map <leader>gT :botright split <bar> call GoToFileUnderCursor()<CR>
 else
     " Recursively add all the working directory to our searchable path.
     set path+=**
