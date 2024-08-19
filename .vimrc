@@ -134,7 +134,7 @@ map <leader>p "+p
 map <leader>P "+P
 
 " Hard delete to the black hole register
-map <leader>d "_d<CR>
+map <leader>d "_d
 
 " Launch file tree
 " at current file's directory
@@ -502,7 +502,6 @@ set cursorline
 
 " Highlight cursor line underneath the cursor vertically.
 set cursorcolumn
-
 
 " Always show cursor position
 set ruler
