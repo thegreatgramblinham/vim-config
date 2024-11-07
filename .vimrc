@@ -213,6 +213,11 @@ else
     map <leader>T :find *<C-r>+
 endif
 
+" Go to the tag under current
+map <leader>a <C-]>
+map <leader>ga :pop<CR>
+map <leader><C-a> :tselect<CR>
+
 " Open a shell window
 map <leader>s :terminal<CR>
 map <leader>S :botright vert terminal<CR>
